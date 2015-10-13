@@ -109,7 +109,3 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
-
-if [ "$1" = "--cleanup" ]; then
-	 rm -rf $PKG $TMP/$PRGNAM-$VERSION
- fi
