@@ -33,10 +33,10 @@ AUDIOROOT=$(pwd)
 
 for dir in \
   speex \
-  ladspa-sdk \
+  ladspa_sdk \
   celt \
   opus \
-  jack2 \
+  jack-audio-connection-kit \
   portaudio \
   qjackctl \
   libmp4v2 \
@@ -77,7 +77,7 @@ for dir in \
       exit 1
     fi
   fi
-  mv $PACKAGE /home/backup/app/slackware/audio/install-jack
+  # mv $PACKAGE /home/backup/app/slackware/audio/install-jack
   # back to original directory
   cd $AUDIOROOT
 done
