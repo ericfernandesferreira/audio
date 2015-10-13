@@ -84,7 +84,7 @@ cd build
     -DLIB_SUFFIX="$LIBDIRSUFFIX" \
     -DDOC_INSTALL_DIR="doc" \
     -DMAN_INSTALL_DIR="man/man1" \
-    -Denable-ladspa="${LADSPA:-no}" \
+    -Denable-ladspa="${LADSPA:-yes}" \
     -Denable-portaudio="${PORTAUDIO:-yes}" \
     ..
 
