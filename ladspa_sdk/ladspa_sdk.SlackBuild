@@ -27,12 +27,9 @@
 
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
-
-
-
 PRGNAM=ladspa_sdk
-VERSION=1.13
-BUILD=${BUILD:-4}
+VERSION=${VERSION:-1.13}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
 if [ -z "$ARCH" ]; then
@@ -70,7 +67,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM
-tar xvf $CWD/${PRGNAM}_${VERSION}.tgz
+tar xvf $CWD/ladspa_sdk_1.13.tgz
 cd $PRGNAM
 chown -R root:root .
 find -L . \
