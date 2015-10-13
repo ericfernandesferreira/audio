@@ -1,4 +1,5 @@
 Versão do Pulseaudio : 7.0
+Versão Jack : 1.9.10
 Versão do FFMPEG : 2.8
 
 Esse pacote de áudio é obrigatório ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências do programa Audacious e de vários outros.
@@ -9,11 +10,17 @@ Requerimentos:
 
 Como instalar:
 - você precisa baixar o .zip ou clonar o git e então executar o script
-sh build-audio.sh
+sh build-audio-pulse.sh (para compilar em pulseaudio)
+sh build-audio-jack.sh (para compilar em jack audio)
 
+Observação:
+- o build não compila pulseaudio e jack juntos, ou é um ou é outro.
+
+*** SOMENTE PARA PULSEAUDIO
 Como instalar os multilibs:
 - dentro da pasta /compat32 contém os pacotes necessários para compilação em compat32 ou seja mutilibs, eles são necessários para o Wine e Skype, caso você não use nenhum desses dois programas, não é necessário a instalação deles.
-*** importantíssimo
+
+*** IMPORTANTÍSSIMO
 você precisa adicionar o samba em multilibs, ele não vem no pacote oficial porém é necessário para o pulseaudio ser compilado em 32bits então basta baixar a versão i486 no slackware-current e converter para compat32
 
 # Para compilar em 32bits usando o Slackware64 faça o seguinte:
@@ -32,7 +39,8 @@ upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
 ---------------------------------------------------------------
 
 Pulseaudio Version: 7.0
-FFmpeg Version: 2.8
+Jack Version : 1.9.10
+FFMPEG Version: 2.8
 
 This audio package is required to be installed before being compiled ambient environments and are also dependencies Audacious program and several others.
 
@@ -42,11 +50,17 @@ Requirements:
 
 How to install:
 - you need to download the .zip or clone git and then run the script
-sh build-audio.sh
+sh build-audio-pulse.sh (for compile pulseaudio)
+sh build-audio-jack.sh (for compile jack audio)
 
+Note:
+- the builder does not build pulseaudio and jack together, or is or is another.
+
+*** ONLY FOR PULSEAUDIO
 Installing the multilibs:
 - Inside the folder compat32/ contains the packages needed for compilation in 32bits, they are necessary for the Wine and Skype if you do not use either of those programs, their installation is not necessary.
-*** Important
+
+*** IMPORTANT
 you need to add the samba in multilibs, it does not come in the official package but is necessary for pulseaudio be compiled in 32bits then just download the i486 version on slackware-current and convert to compat32
 
 # To compile on 32bit using Slackware64 do the following:
