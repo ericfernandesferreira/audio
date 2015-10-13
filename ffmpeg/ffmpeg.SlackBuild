@@ -80,13 +80,8 @@ find -L . \
 # --disable-stripping
 # --enable-avisynth
 # --enable-avresample
-# --enable-fontconfig
 # --enable-libass
-# --enable-libfreetype
 # --enable-libopenjpeg
-# --enable-libopus
-# --enable-libv4l2
-# --enable-libvpx
 # --enable-libbluray
 # --enable-libfribidi
 # --enable-libgsm
@@ -134,6 +129,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libv4l2 \
   --enable-libwavpack \
   --enable-openssl \
+  --enable-libopus \
   --arch=$ARCH
 
 make -j5
