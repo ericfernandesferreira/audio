@@ -47,7 +47,7 @@ for dir in \
   xvidcore \
   fluidsynth \
   OpenAL \
-  ffmpeg \
+  ffmpeg-jack \
   libcue \
   libbs2b \
   gst-plugins-good0 \
