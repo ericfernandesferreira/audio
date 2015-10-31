@@ -26,7 +26,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PKGNAM=gst-plugins-good
-VERSION=${VERSION:-1.4.5}
+VERSION=${VERSION:-1.6.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -88,10 +88,10 @@ CXXFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
-  --enable-experimental \
   --with-package-name="GStreamer Good Plugins (Slackware Linux)" \
   --with-package-origin="http://www.slackware.com" \
   --disable-static \
+  --disable-debug \
   --build=$ARCH-slackware-linux || exit 1
 
 make $NUMJOBS || make || exit 1
