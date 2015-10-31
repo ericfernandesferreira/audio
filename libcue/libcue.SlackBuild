@@ -37,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://downloads.sourceforge.net/libcue/$PRGNAM-$VERSION.tar.bz2
+wget -c http://ftp.cc.uoc.gr/mirrors/linux/frugalware/frugalware-stable/source/lib-extra/libcue/$PRGNAM-$VERSION.tar.bz2
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
