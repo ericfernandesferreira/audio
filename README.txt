@@ -1,6 +1,6 @@
-Versão do Pulseaudio : 7.0
-Versão Jack : 1.9.10
-Versão do FFMPEG : 2.8
+Versão do Pulseaudio : 7.1
+Versão Jack2 : 1.9.10
+Versão do FFMPEG : 2.8.1
 
 Esse pacote de áudio é obrigatório ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências do programa Audacious e de vários outros.
 
@@ -38,9 +38,9 @@ upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
 
 ---------------------------------------------------------------
 
-Pulseaudio Version: 7.0
+Pulseaudio Version: 7.1
 Jack Version : 1.9.10
-FFMPEG Version: 2.8
+FFMPEG Version: 2.8.1
 
 This audio package is required to be installed before being compiled ambient environments and are also dependencies Audacious program and several others.
 
