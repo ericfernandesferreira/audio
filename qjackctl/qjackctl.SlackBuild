@@ -89,6 +89,7 @@ CFLAGS="$SLKCFLAGS" \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --disable-qt5 \
+  --enable-jack-version=jack2 \
   --build=$ARCH-slackware-linux
 
 make -j5
