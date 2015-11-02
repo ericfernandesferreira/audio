@@ -36,7 +36,7 @@ for dir in \
   ladspa_sdk \
   celt \
   opus \
-  jack-audio-connection-kit \
+  jack2 \
   portaudio \
   qjackctl \
   libmp4v2 \
@@ -53,6 +53,7 @@ for dir in \
   gst-plugins-good0 \
   gst-plugins-good \
   alsa-plugins \
+  apulse \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
