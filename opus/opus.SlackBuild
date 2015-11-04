@@ -37,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://downloads.xiph.org/releases/opus/$PRGNAM-$VERSION-beta.tar.gz
+wget -c http://downloads.xiph.org/releases/opus/$PRGNAM-$VERSION-rc.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -64,8 +64,8 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION-beta
-tar xvf $CWD/$PRGNAM-$VERSION-beta.tar.gz
-cd $PRGNAM-$VERSION-beta
+tar xvf $CWD/$PRGNAM-$VERSION-rc.tar.gz
+cd $PRGNAM-$VERSION-rc
 
 chown -R root:root .
 find -L . \
