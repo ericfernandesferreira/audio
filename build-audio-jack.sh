@@ -59,6 +59,7 @@ for dir in \
   libcue \
   libbs2b \
   libshout \
+  libdv \
   gst-plugins-good0 \
   gst-plugins-good \
   alsa-plugins \
