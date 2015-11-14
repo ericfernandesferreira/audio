@@ -86,6 +86,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --mandir=/usr/man \
   --sysconfdir=/etc \
   --localstatedir=/var \
+  --disable-static \
   --build=$ARCH-slackware-linux
 
 make -j5

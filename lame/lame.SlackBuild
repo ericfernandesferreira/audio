@@ -85,6 +85,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --htmldir=/usr/doc/$PRGNAM-$VERSION \
   --enable-nasm \
+  --disable-static \
   --build=$ARCH-slackware-linux
 
 make -j5 pkgdocdir=/usr/doc/$PRGNAM-$VERSION
