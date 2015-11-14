@@ -34,20 +34,29 @@ AUDIOROOT=$(pwd)
 for dir in \
   speex \
   json-c \
+  ladspa_sdk \
   portaudio \
   pulseaudio \
   libmp4v2 \
   faac \
   faad2 \
   lame \
+  twolame \
   x264 \
+  x265 \
   xvidcore \
   fluidsynth \
   OpenAL \
   opus \
+  schroedinger \
+  libbluray \
+  libass \
+  gsm \
+  libmodplug \
   ffmpeg \
   libcue \
   libbs2b \
+  libshout \
   gst-plugins-good0 \
   gst-plugins-good \
   alsa-plugins \
