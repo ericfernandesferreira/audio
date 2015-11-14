@@ -57,6 +57,7 @@ for dir in \
   libcue \
   libbs2b \
   libshout \
+  libdv \
   gst-plugins-good0 \
   gst-plugins-good \
   alsa-plugins \
@@ -93,3 +94,6 @@ done
 echo default_driver=pulse > /etc/libao.conf
 mkdir -p /etc/openal
 echo "drivers = pulse" > /etc/openal/alsoft.conf
+
+groupadd -g 216 pulse
+useradd -u 216 -g pulse -d /var/run/pulse -m pulse
