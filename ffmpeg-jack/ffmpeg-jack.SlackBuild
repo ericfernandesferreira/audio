@@ -77,18 +77,17 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# Flags do Arch
 # --disable-stripping
 # --enable-avisynth
 # --enable-avresample
-# --enable-libass
+# --enable-avfilter
 # --enable-libopenjpeg
-# --enable-libbluray
-# --enable-libfribidi
-# --enable-libgsm
-# --enable-libmodplug
-# --enable-libschroedinger
 # --enable-librtmp
+# --enable-libopencore_amrnb
+# --enable-libopencore_amrwb
+# --enable-libvo-aacenc
+# --enable-vdpau
+# --enable-vaapi
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -100,6 +99,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --mandir=/usr/man \
   --disable-debug \
   --disable-static \
+  --disable-devices \
   --enable-shared \
   --enable-pthreads \
   --enable-libtheora \
@@ -109,7 +109,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-postproc \
   --enable-swscale \
   --enable-x11grab \
-  --enable-avfilter \
   --enable-gnutls \
   --enable-libcdio \
   --enable-libssh \
@@ -130,7 +129,17 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libwavpack \
   --enable-openssl \
   --enable-libopus \
+  --enable-libfribidi \
+  --enable-libbluray \
+  --enable-libx265 \
+  --enable-libschroedinger \
+  --enable-libass \
+  --enable-libgsm \
   --enable-ladspa \
+  --enable-bzlib \
+  --enable-zlib \
+  --enable-libtwolame \
+  --enable-libmodplug \
   --arch=$ARCH
 
 make -j5
