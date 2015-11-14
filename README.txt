@@ -1,8 +1,8 @@
 Versão do Pulseaudio : 7.1
 Versão Jack2 : 1.9.10
-Versão do FFMPEG : 2.8.1
+Versão do FFMPEG : 2.8.2
 
-Esse pacote de áudio é obrigatório ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências do programa Audacious e de vários outros.
+Esse pacote de áudio é obrigatório ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências do programa Audacious, VLC, Deadbeef, Mplayer, Qtractor entre outros.
 
 Requerimentos:
 - slackware64 current
@@ -40,9 +40,9 @@ upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
 
 Pulseaudio Version: 7.1
 Jack Version : 1.9.10
-FFMPEG Version: 2.8.1
+FFMPEG Version: 2.8.2
 
-This audio package is required to be installed before being compiled ambient environments and are also dependencies Audacious program and several others.
+This audio package is required to be installed before compiling environments desktops and also the are dependencies for programs like Audacious, VLC, Deadbeef, Mplayer, Qtractor among others.
 
 Requirements:
 - slackware64 current
