@@ -42,7 +42,7 @@ fi
 
 wget -c http://gstreamer.freedesktop.org/src/gst-plugins-good/$PKGNAM-$VERSION.tar.xz
 
-NUMJOBS=${NUMJOBS:-" -j7 "}
+NUMJOBS=${NUMJOBS:-" -j8 "}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
