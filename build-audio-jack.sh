@@ -33,6 +33,7 @@ AUDIOROOT=$(pwd)
 
 for dir in \
   speex \
+  json-c \
   ladspa_sdk \
   celt \
   opus \
@@ -43,13 +44,21 @@ for dir in \
   faac \
   faad2 \
   lame \
+  twolame \
   x264 \
+  x265 \
   xvidcore \
   fluidsynth \
   OpenAL \
+  schroedinger \
+  libbluray \
+  libass \
+  gsm \
+  libmodplug \
   ffmpeg-jack \
   libcue \
   libbs2b \
+  libshout \
   gst-plugins-good0 \
   gst-plugins-good \
   alsa-plugins \
@@ -78,8 +87,6 @@ for dir in \
       exit 1
     fi
   fi
-  # mv $PACKAGE /home/backup/app/slackware/audio/install-jack
-  # back to original directory
   cd $AUDIOROOT
 done
 
