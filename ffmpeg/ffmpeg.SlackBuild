@@ -87,6 +87,7 @@ find -L . \
 # --enable-libvo-aacenc
 # --enable-vdpau
 # --enable-vaapi
+# --enable-libvpx
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -124,7 +125,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-fontconfig \
   --enable-libfreetype \
   --enable-libfaac \
-  --enable-libvpx \
   --enable-libv4l2 \
   --enable-libwavpack \
   --enable-openssl \
