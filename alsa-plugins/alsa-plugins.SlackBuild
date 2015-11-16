@@ -7,7 +7,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=alsa-plugins
-VERSION=${VERSION:-1.0.29}
+VERSION=${VERSION:-1.1.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
