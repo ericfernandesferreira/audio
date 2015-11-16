@@ -79,7 +79,6 @@ find -L . \
 # --disable-stripping
 # --enable-avisynth
 # --enable-avresample
-# --enable-avfilter
 # --enable-libopenjpeg
 # --enable-librtmp
 # --enable-libopencore_amrnb
@@ -87,7 +86,8 @@ find -L . \
 # --enable-libvo-aacenc
 # --enable-vdpau
 # --enable-vaapi
-# --enable-libvpx
+
+patch -p1 < $CWD/ffmpeg-2.8.1-libvpxenc-remove-some-unused-ctrl-id-mappings.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -99,7 +99,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --mandir=/usr/man \
   --disable-debug \
   --disable-static \
-  --disable-devices \
   --enable-shared \
   --enable-pthreads \
   --enable-libtheora \
@@ -140,6 +139,8 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-zlib \
   --enable-libtwolame \
   --enable-libmodplug \
+  --enable-libvpx \
+  --enable-avfilter \
   --arch=$ARCH
 
 make -j5
