@@ -8,7 +8,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=libshout
-VERSION=${VERSION:-2.3.1}
+VERSION=${VERSION:-2.4.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
