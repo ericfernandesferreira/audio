@@ -92,7 +92,7 @@ CFLAGS="$SLKCFLAGS" \
   --enable-jack-version=jack2 \
   --build=$ARCH-slackware-linux
 
-make -j5
+make
 make install DESTDIR=$PKG
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
@@ -105,8 +105,7 @@ for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; r
 cat $CWD/qjackctl.desktop > $PKG/usr/share/applications/qjackctl.desktop
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING ChangeLog INSTALL README TODO TRANSLATORS \
-      $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL README TODO TRANSLATORS $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

@@ -37,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c ftp://ftp.videolan.org/pub/videolan/$PRGNAM/$VERSION/$PRGNAM-$VERSION.tar.bz2
+wget -c ftp://ftp.videolan.org/pub/videolan/libbluray/0.9.2/$PRGNAM-$VERSION.tar.bz2
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -94,16 +94,8 @@ CXXFLAGS="$SLKCFLAGS" \
   $OPT_ARGS \
   --build=$ARCH-slackware-linux
 
-make -j5
+make
 make install DESTDIR=$PKG
-
-### The xine bluray plugin only works with xine-lib > 1.2.
-### Disabling for now.
-# Install the xine bluray plugin
-#CFLAGS="$SLKCFLAGS -I$PKG/usr/include" \
-#LDFLAGS="-L$PKG/usr/lib$LIBDIRSUFFIX" \
-#LIBS_BD="-lbluray" \
-#make -C player_wrappers/xine DESTDIR=$PKG install
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true

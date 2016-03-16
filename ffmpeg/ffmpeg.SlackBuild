@@ -28,30 +28,28 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-2.8.3}
+VERSION=${VERSION:-2.8.6}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
+MARCH=$( uname -m )
 if [ -z "$ARCH" ]; then
-  case "$( uname -m )" in
-    i?86) ARCH=i486 ;;
-    arm*) ARCH=arm ;;
-       *) ARCH=$( uname -m ) ;;
+  case "$MARCH" in
+    i?86)    export ARCH=i586 ;;
+    armv7hl) export ARCH=$MARCH ;;
+    arm*)    export ARCH=arm ;;
+    # Unless $ARCH is already set, use uname -m for all other archs:
+    *)       export ARCH=$MARCH ;;
   esac
 fi
 
 wget -c http://ffmpeg.org/releases/$PRGNAM-$VERSION.tar.bz2
 
-CWD=$(pwd)
-TMP=${TMP:-/tmp/SBo}
-PKG=$TMP/package-$PRGNAM
-OUTPUT=${OUTPUT:-/tmp}
-
-if [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+if [ "$ARCH" = "i586" ]; then
+  SLKCFLAGS="-O2 -march=i586 -mtune=i686"
   LIBDIRSUFFIX=""
-elif [ "$ARCH" = "i686" ]; then
-  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
@@ -60,6 +58,11 @@ else
   SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
 fi
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
 
 set -e
 
@@ -74,7 +77,7 @@ find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
   -o -perm 511 \) -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
- -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 # --disable-stripping
 # --enable-avisynth
@@ -84,10 +87,7 @@ find -L . \
 # --enable-libopencore_amrnb
 # --enable-libopencore_amrwb
 # --enable-libvo-aacenc
-# --enable-vdpau
-# --enable-vaapi
-
-patch -p1 < $CWD/ffmpeg-2.8.1-libvpxenc-remove-some-unused-ctrl-id-mappings.patch
+# --enable-libspeex
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -116,7 +116,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-opengl \
   --enable-libmp3lame \
   --enable-libx264 \
-  --enable-libspeex \
   --enable-libxvid \
   --enable-openal \
   --enable-nonfree \
@@ -140,10 +139,12 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libtwolame \
   --enable-libmodplug \
   --enable-libvpx \
+  --enable-vdpau \
+  --enable-vaapi \
   --enable-avfilter \
   --arch=$ARCH
 
-make -j5
+make
 make install DESTDIR=$PKG
 make install-man DESTDIR=$PKG
 
