@@ -1,0 +1,23 @@
+diff -rupN libcue-2.0.1-original/CMakeLists.txt libcue-2.0.1-patched/CMakeLists.txt
+--- libcue-2.0.1-original/CMakeLists.txt	2016-02-25 05:42:19.000000000 -0300
++++ libcue-2.0.1-patched/CMakeLists.txt	2016-03-14 23:59:42.352505037 -0300
+@@ -19,7 +19,7 @@ SET (CUE_SOURCES
+ 
+ CONFIGURE_FILE(libcue.pc.in libcue.pc @ONLY)
+ INSTALL(FILES ${CMAKE_BINARY_DIR}/libcue.pc
+-	DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
++	DESTINATION ${CMAKE_INSTALL_PREFIX}/lib64/pkgconfig)
+ 
+ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
+ INCLUDE_DIRECTORIES(${CMAKE_BINARY_DIR}) # for generated files
+@@ -44,8 +44,8 @@ SET_TARGET_PROPERTIES (cue
+ 	C_VISIBILITY_PRESET hidden)
+ 
+ INSTALL(TARGETS cue
+-	LIBRARY DESTINATION lib
+-	ARCHIVE DESTINATION lib)
++	LIBRARY DESTINATION lib64
++	ARCHIVE DESTINATION lib64)
+ INSTALL(FILES ${CMAKE_SOURCE_DIR}/libcue.h DESTINATION include)
+ if(CMAKE_HOST_UNIX)
+ 	INSTALL(DIRECTORY DESTINATION include/libcue
