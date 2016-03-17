@@ -1,6 +1,6 @@
-Versão do Pulseaudio : 7.1
+Pulseaudio incluso no Slackware
 Versão Jack2 : 1.9.10
-Versão do FFMPEG : 2.8.2
+Versão do FFMPEG : 2.8.6
 
 Esse pacote de áudio é obrigatório ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências do programa Audacious, VLC, Deadbeef, Mplayer, Qtractor entre outros.
 
@@ -10,7 +10,7 @@ Requerimentos:
 
 Como instalar:
 - você precisa baixar o .zip ou clonar o git e então executar o script
-sh build-audio-pulse.sh (para compilar em pulseaudio)
+sh build-audio.sh (para compilar com pulseaudio)
 sh build-audio-jack.sh (para compilar em jack audio)
 
 Observação:
@@ -38,9 +38,9 @@ upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
 
 ---------------------------------------------------------------
 
-Pulseaudio Version: 7.1
+Pulseaudio already include
 Jack Version : 1.9.10
-FFMPEG Version: 2.8.2
+FFMPEG Version: 2.8.6
 
 This audio package is required to be installed before compiling environments desktops and also the are dependencies for programs like Audacious, VLC, Deadbeef, Mplayer, Qtractor among others.
 
@@ -50,7 +50,7 @@ Requirements:
 
 How to install:
 - you need to download the .zip or clone git and then run the script
-sh build-audio-pulse.sh (for compile pulseaudio)
+sh build-audio.sh (for compile pulseaudio)
 sh build-audio-jack.sh (for compile jack audio)
 
 Note:
