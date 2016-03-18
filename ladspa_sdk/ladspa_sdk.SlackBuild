@@ -104,7 +104,7 @@ chmod 0755 $PKG/etc/profile.d/*
 # Cleanup files left in /tmp by make
 rm -f /tmp/test.wav || true
 
-find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
