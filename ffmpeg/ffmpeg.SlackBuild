@@ -28,7 +28,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-2.8.6}
+VERSION=${VERSION:-2.8.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -76,15 +76,16 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# --disable-stripping
-# --enable-avisynth
-# --enable-avresample
-# --enable-libopenjpeg
-# --enable-librtmp
-# --enable-libopencore_amrnb
-# --enable-libopencore_amrwb
-# --enable-libvo-aacenc
-# --enable-libspeex
+# --enable-libv4l2 \
+# --enable-avisynth \
+# --enable-nvenc \
+# --enable-libopenjpeg \
+# --enable-librtmp \
+# --enable-libopencore_amrnb \
+# --enable-libopencore_amrwb \
+# --enable-libvo-aacenc \
+# --enable-libspeex \
+# --arch=$ARCH \
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -120,7 +121,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-fontconfig \
   --enable-libfreetype \
   --enable-libfaac \
-  --enable-libv4l2 \
   --enable-libwavpack \
   --enable-openssl \
   --enable-libopus \
@@ -136,10 +136,19 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libtwolame \
   --enable-libmodplug \
   --enable-libvpx \
-  --enable-vdpau \
-  --enable-vaapi \
   --enable-avfilter \
-  --arch=$ARCH
+  --enable-avresample \
+  --enable-hardcoded-tables \
+  --enable-lzma \
+  --enable-sdl \
+  --enable-vaapi \
+  --enable-vdpau \
+  --enable-xlib \
+  --enable-libxcb \
+  --enable-libxcb-shm \
+  --enable-libxcb-xfixes \
+  --enable-libbs2b \
+  --disable-stripping
 
 make
 make install DESTDIR=$PKG

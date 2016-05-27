@@ -29,7 +29,7 @@
 
 PRGNAM=ffmpeg
 SRCNAM=ffmpeg-jack
-VERSION=${VERSION:-2.8.6}
+VERSION=${VERSION:-2.8.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
