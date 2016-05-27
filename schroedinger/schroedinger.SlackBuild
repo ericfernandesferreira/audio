@@ -40,7 +40,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://diracvideo.org/download/$PRGNAM/$PRGNAM-$VERSION.tar.gz
+wget -c https://launchpad.net/schroedinger/trunk/1.0.11/+download/$PRGNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
