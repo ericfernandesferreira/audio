@@ -55,10 +55,9 @@ for dir in \
   libass \
   gsm \
   libmodplug \
+  libbs2b \
   ffmpeg-jack \
   libcue \
-  libbs2b \
-  libshout \
   libdv \
   gst-plugins-good0 \
   gst-plugins-good \
