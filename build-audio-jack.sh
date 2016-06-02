@@ -58,6 +58,7 @@ for dir in \
   libbs2b \
   ffmpeg-jack \
   libcue \
+  libshout \
   libdv \
   gst-plugins-good0 \
   gst-plugins-good \
