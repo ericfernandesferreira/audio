@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+          |-----handy-ruler------------------------------------------------------|
+nvidia-sdk: The NVIDIA Video Codec SDK is a complete set of high-performance
+nvidia-sdk: NVIDIA Video Codecs tools, samples and documentation for hardware
+nvidia-sdk: encode API (NVENC API) and hardware decode API (NVCUVID API) on
+nvidia-sdk: Windows and Linux OS platforms. 
+nvidia-sdk: This SDK consists of two hardware API interfaces: NVENC for video
+nvidia-sdk: encode acceleration and NVCUVID for video decode acceleration with
+nvidia-sdk: NVIDIA’s Kepler and Maxwell generations of GPUs.
+nvidia-sdk:
+nvidia-sdk:
+nvidia-sdk: Homepage: https://developer.nvidia.com/nvidia-video-codec-sdk
+nvidia-sdk:
