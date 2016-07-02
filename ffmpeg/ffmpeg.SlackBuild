@@ -28,7 +28,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-2.8.7}
+VERSION=${VERSION:-3.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -78,7 +78,6 @@ find -L . \
 
 # --enable-libv4l2 \
 # --enable-avisynth \
-# --enable-nvenc \
 # --enable-libopenjpeg \
 # --enable-librtmp \
 # --enable-libopencore_amrnb \
@@ -86,6 +85,12 @@ find -L . \
 # --enable-libvo-aacenc \
 # --enable-libspeex \
 # --arch=$ARCH \
+
+if [ "${NVENC:-on}" = "on" ]; then
+  nvenc="--enable-nvenc"
+else
+  nvenc="--disable-nvenc"
+fi
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -148,6 +153,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libxcb-shm \
   --enable-libxcb-xfixes \
   --enable-libbs2b \
+  $nvenc \
   --disable-stripping
 
 make
