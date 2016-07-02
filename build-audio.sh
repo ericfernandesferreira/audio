@@ -48,6 +48,7 @@ for dir in \
   gsm \
   libmodplug \
   libbs2b \
+  nvidia-sdk \
   ffmpeg \
   libcue \
   libdv \
