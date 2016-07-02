@@ -63,7 +63,6 @@ for dir in \
   gst-plugins-good0 \
   gst-plugins-good \
   alsa-plugins \
-  apulse \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
