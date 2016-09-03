@@ -27,8 +27,8 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=nvidia-sdk
-SRCNAM=nvidia_video_sdk_6.0.1
-VERSION=${VERSION:-6.0.1}
+SRCNAM=Video_Codec_SDK_7.0.1
+VERSION=${VERSION:-7.0.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -40,7 +40,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://developer.nvidia.com/video-sdk-601
+wget -c https://www.dropbox.com/s/psvo22wfuydvu9o/$SRCNAM.zip
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -67,7 +67,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM
-mv $CWD/video-sdk-601 $CWD/$PRGNAM-$VERSION.zip
+mv $CWD/$SRCNAM.zip $CWD/$PRGNAM-$VERSION.zip
 unzip $CWD/$PRGNAM-$VERSION.zip
 cd $SRCNAM
 chown -R root:root .
