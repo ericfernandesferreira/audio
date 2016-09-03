@@ -1,6 +1,6 @@
 Pulseaudio incluso no Slackware
 Versão Jack2 : 1.9.10
-Versão do FFMPEG : 3.1.1
+Versão do FFMPEG : 3.1.2
 
 Esse pacote de áudio é obrigatório ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências do programa Audacious, VLC, Deadbeef, Mplayer, Qtractor entre outros.
 
