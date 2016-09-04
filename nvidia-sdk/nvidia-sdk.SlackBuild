@@ -40,7 +40,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://www.dropbox.com/s/psvo22wfuydvu9o/$SRCNAM.zip
+# wget -c https://www.dropbox.com/s/psvo22wfuydvu9o/$SRCNAM.zip
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
