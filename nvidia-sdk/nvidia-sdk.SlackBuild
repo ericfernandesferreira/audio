@@ -67,7 +67,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM
-mv $CWD/$SRCNAM.zip $CWD/$PRGNAM-$VERSION.zip
+# mv $CWD/$SRCNAM.zip $CWD/$PRGNAM-$VERSION.zip
 unzip $CWD/$PRGNAM-$VERSION.zip
 cd $SRCNAM
 chown -R root:root .
@@ -78,14 +78,13 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 cd Samples/common/inc
-mkdir -p $PKG/usr/$PRGNAM/include
-mkdir -p $PKG/usr/$PRGNAM/include/GL
-mkdir -p $PKG/usr/local/include
-install -D -m644 *.h $PKG/usr/$PRGNAM/include/
-ln -s $PKG/usr/$PRGNAM/include/nvEncodeAPI.h $PKG/usr/local/include
+mkdir -p $PKG/usr/include/$PRGNAM
+mkdir -p $PKG/usr/include/$PRGNAM/GL
+# mkdir -p $PKG/usr/local/include
+install -D -m644 *.h $PKG/usr/include/$PRGNAM/
+# ln -s $PKG/usr/$PRGNAM/include/nvEncodeAPI.h $PKG/usr/local/include
 cd GL
-install -D -m644 *.h $PKG/usr/$PRGNAM/include/GL
-
+install -D -m644 *.h $PKG/usr/include/$PRGNAM/GL
 
 cd $TMP/$SRCNAM
 
