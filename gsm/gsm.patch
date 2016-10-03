@@ -107,9 +107,9 @@
  
  $(LIBGSM):	$(LIB) $(GSM_OBJECTS)
 +$(LIBGSMSO):	$(LIB) $(SHARED_GSM_OBJECTS)
-+		$(LD) $(LFLAGS) -o $@.1.0.14 -shared -Xlinker -soname -Xlinker libgsm.so.1 $(SHARED_GSM_OBJECTS) -lc
-+		ln -fs libgsm.so.1.0.14 lib/libgsm.so.1
-+		ln -fs libgsm.so.1.0.14 lib/libgsm.so
++		$(LD) $(LFLAGS) -o $@.1.0.16 -shared -Xlinker -soname -Xlinker libgsm.so.1 $(SHARED_GSM_OBJECTS) -lc
++		ln -fs libgsm.so.1.0.16 lib/libgsm.so.1
++		ln -fs libgsm.so.1.0.16 lib/libgsm.so
 +
 +$(LIBGSM):	$(LIB) $(STATIC_GSM_OBJECTS)
  		-rm $(RMFLAGS) $(LIBGSM)
@@ -141,7 +141,7 @@
  clean:	semi-clean
  		-rm $(RMFLAGS) $(LIBGSM) $(ADDTST)/add		\
 -			$(TOAST) $(TCAT) $(UNTOAST)	\
-+			$(LIBGSMSO) $(LIB)/libgsm.so.1.0.14	\
++			$(LIBGSMSO) $(LIB)/libgsm.so.1.0.16	\
 +			$(LIB)libgsm.so.1			\
 +			$(TOAST) $(TCAT) $(UNTOAST)		\
  			$(ROOT)/gsm-1.0.tar.Z
