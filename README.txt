@@ -1,6 +1,6 @@
 Pulseaudio incluso no Slackware
 Versão Jack2 : 1.9.10
-Versão do FFMPEG : 3.1.4
+Versão do FFMPEG : 3.1.5
 
 Esse pacote de áudio é obrigatório ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências do programa Audacious, VLC, Deadbeef, Mplayer, Qtractor entre outros.
 
@@ -13,25 +13,18 @@ Como instalar:
 sh build-audio.sh (para compilar com pulseaudio)
 sh build-audio-jack.sh (para compilar em jack audio)
 
-Observação:
-- o build não compila pulseaudio e jack juntos, ou é um ou é outro.
-
-*** SOMENTE PARA PULSEAUDIO
-Como instalar os multilibs:
-- dentro da pasta /compat32 contém os pacotes necessários para compilação em compat32 ou seja mutilibs, eles são necessários para o Wine e Skype, caso você não use nenhum desses dois programas, não é necessário a instalação deles.
-
 *** IMPORTANTÍSSIMO
-você precisa adicionar o samba em multilibs, ele não vem no pacote oficial porém é necessário para o pulseaudio ser compilado em 32bits então basta baixar a versão i486 no slackware-current e converter para compat32
+Caso for usar o Wine, é bom compilar os pacotes GSM e OpenAL em 32bits
 
 # Para compilar em 32bits usando o Slackware64 faça o seguinte:
 su -
 . /etc/profile.d/32dev.sh
 
 # Então acesse a pasta do audio compat32 e compile na ordem com o comando
-ARCH=i486 ./nomedopacote.SlackBuild
+ARCH=i586 ./nomedopacote.SlackBuild
 
 # Após compilado você precisa converter para compat32
-convertpkg-compat32 -i /tmp/nomedopacote-i486.tgz
+convertpkg-compat32 -i /tmp/nomedopacote-i586.tgz
 
 # Após convertido basta instalar
 upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
@@ -40,7 +33,7 @@ upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
 
 Pulseaudio already include
 Jack Version : 1.9.10
-FFMPEG Version: 3.1.4
+FFMPEG Version: 3.1.5
 
 This audio package is required to be installed before compiling environments desktops and also the are dependencies for programs like Audacious, VLC, Deadbeef, Mplayer, Qtractor among others.
 
@@ -53,25 +46,18 @@ How to install:
 sh build-audio.sh (for compile pulseaudio)
 sh build-audio-jack.sh (for compile jack audio)
 
-Note:
-- the builder does not build pulseaudio and jack together, or is or is another.
-
-*** ONLY FOR PULSEAUDIO
-Installing the multilibs:
-- Inside the folder compat32/ contains the packages needed for compilation in 32bits, they are necessary for the Wine and Skype if you do not use either of those programs, their installation is not necessary.
-
 *** IMPORTANT
-you need to add the samba in multilibs, it does not come in the official package but is necessary for pulseaudio be compiled in 32bits then just download the i486 version on slackware-current and convert to compat32
+if you will use Wine is good to compile packages like GSM and OpenAL in 32bits
 
 # To compile on 32bit using Slackware64 do the following:
 su -
 . /etc/profile.d/32dev.sh
 
 # Then go to compat32 audio folder and compile the order with the command
-ARCH=i486 ./packagename.SlackBuild
+ARCH=i586 ./packagename.SlackBuild
 
 # After compiled you need to convert to compat32
-convertpkg-compat32 -i /tmp/packagename-i486.tgz
+convertpkg-compat32 -i /tmp/packagename-i586.tgz
 
 # After converted just install
 upgradepkg --install-new /tmp/packagename-compat32.tgz
