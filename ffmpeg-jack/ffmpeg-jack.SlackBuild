@@ -29,7 +29,7 @@
 
 PRGNAM=ffmpeg
 SRCNAM=ffmpeg-jack
-VERSION=${VERSION:-3.1.5}
+VERSION=${VERSION:-3.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -88,6 +88,7 @@ find -L . \
 # --enable-vdpau
 # --enable-vaapi
 # --ebable-libspeex
+# --enable-libfaac
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -121,7 +122,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-nonfree \
   --enable-fontconfig \
   --enable-libfreetype \
-  --enable-libfaac \
   --enable-libv4l2 \
   --enable-libwavpack \
   --enable-openssl \

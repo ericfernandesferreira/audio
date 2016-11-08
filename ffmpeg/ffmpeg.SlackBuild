@@ -28,7 +28,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-3.1.5}
+VERSION=${VERSION:-3.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -84,6 +84,7 @@ find -L . \
 # --enable-libopencore_amrwb \
 # --enable-libvo-aacenc \
 # --enable-libspeex \
+# --enable-libfaac \
 # --arch=$ARCH \
 
 if [ "${NVENC:-on}" = "on" ]; then
@@ -126,7 +127,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libpulse \
   --enable-fontconfig \
   --enable-libfreetype \
-  --enable-libfaac \
   --enable-libwavpack \
   --enable-openssl \
   --enable-libopus \
