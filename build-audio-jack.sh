@@ -30,13 +30,9 @@ TMP=${TMP:-/tmp}
 
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
-
 for dir in \
-  speex \
-  json-c \
   ladspa_sdk \
   celt \
-  opus \
   jack2 \
   portaudio \
   qjackctl \
@@ -48,21 +44,20 @@ for dir in \
   x264 \
   x265 \
   xvidcore \
-  fluidsynth \
   OpenAL \
+  opus \
   schroedinger \
   libbluray \
   libass \
   gsm \
   libmodplug \
   libbs2b \
+  nvidia-sdk \
   ffmpeg-jack \
   libcue \
-  libshout \
   libdv \
   gst-plugins-good0 \
   gst-plugins-good \
-  alsa-plugins \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
