@@ -25,8 +25,8 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=portaudio
-SRCNAME="pa_stable_v19_20140130.tgz"
-VERSION=${VERSION:-V19}
+SRCNAME="pa_stable_v190600_20161030.tgz" 
+VERSION=${VERSION:-V190600}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
