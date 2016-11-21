@@ -77,23 +77,27 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# --disable-stripping
+
 # --enable-avisynth
-# --enable-avresample
 # --enable-libopenjpeg
 # --enable-librtmp
 # --enable-libopencore_amrnb
 # --enable-libopencore_amrwb
 # --enable-libvo-aacenc
-# --enable-vdpau
-# --enable-vaapi
 # --ebable-libspeex
 # --enable-libfaac
+
+if [ "${NVENC:-on}" = "on" ]; then
+  nvenc="--enable-nvenc"
+else
+  nvenc="--disable-nvenc"
+fi
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
+  --extra-cflags="-I/usr/include/nvidia-sdk" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --shlibdir=/usr/lib${LIBDIRSUFFIX} \
   --docdir=/usr/doc/$PRGNAM-$VERSION/html \
@@ -120,9 +124,9 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libxvid \
   --enable-openal \
   --enable-nonfree \
+  --enable-libpulse \
   --enable-fontconfig \
   --enable-libfreetype \
-  --enable-libv4l2 \
   --enable-libwavpack \
   --enable-openssl \
   --enable-libopus \
@@ -139,6 +143,19 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libmodplug \
   --enable-libvpx \
   --enable-avfilter \
+  --enable-avresample \
+  --enable-hardcoded-tables \
+  --enable-lzma \
+  --enable-sdl \
+  --enable-vaapi \
+  --enable-vdpau \
+  --enable-xlib \
+  --enable-libxcb \
+  --enable-libxcb-shm \
+  --enable-libxcb-xfixes \
+  --enable-libbs2b \
+  $nvenc \
+  --disable-stripping \
   --arch=$ARCH
 
 make
