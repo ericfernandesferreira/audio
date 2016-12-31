@@ -32,6 +32,7 @@ TMP=${TMP:-/tmp}
 AUDIOROOT=$(pwd)
 for dir in \
   ladspa_sdk \
+  speex \
   celt \
   jack2 \
   portaudio \
