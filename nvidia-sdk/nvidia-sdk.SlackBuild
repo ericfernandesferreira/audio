@@ -27,8 +27,8 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=nvidia-sdk
-SRCNAM=Video_Codec_SDK_7.0.1
-VERSION=${VERSION:-7.0.1}
+SRCNAM=Video_Codec_SDK_7.1.9
+VERSION=${VERSION:-7.1.9}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -67,8 +67,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM
-# mv $CWD/$SRCNAM.zip $CWD/$PRGNAM-$VERSION.zip
-unzip $CWD/$PRGNAM-$VERSION.zip
+unzip $CWD/$SRCNAM.zip
 cd $SRCNAM
 chown -R root:root .
 find -L . \
