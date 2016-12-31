@@ -44,7 +44,7 @@ fi
 wget -c http://downloads.us.xiph.org/releases/$PRGNAM/$PRGNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/_SBo}
+TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
