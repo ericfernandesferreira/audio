@@ -83,7 +83,6 @@ find -L . \
 # --enable-libopencore_amrnb \
 # --enable-libopencore_amrwb \
 # --enable-libvo-aacenc \
-# --enable-libspeex \
 # --enable-libfaac \
 # --arch=$ARCH \
 
@@ -154,10 +153,12 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libxcb-shm \
   --enable-libxcb-xfixes \
   --enable-libbs2b \
+  --enable-libspeex \
   $nvenc \
-  --disable-stripping
+  --disable-stripping \
+  --arch=$ARCH
 
-make
+make -j5
 make install DESTDIR=$PKG
 make install-man DESTDIR=$PKG
 

@@ -154,11 +154,12 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libxcb-shm \
   --enable-libxcb-xfixes \
   --enable-libbs2b \
+  --enable-libspeex \
   $nvenc \
   --disable-stripping \
   --arch=$ARCH
 
-make
+make -j5
 make install DESTDIR=$PKG
 make install-man DESTDIR=$PKG
 
