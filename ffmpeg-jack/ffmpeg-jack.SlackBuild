@@ -84,7 +84,6 @@ find -L . \
 # --enable-libopencore_amrnb
 # --enable-libopencore_amrwb
 # --enable-libvo-aacenc
-# --ebable-libspeex
 # --enable-libfaac
 
 if [ "${NVENC:-on}" = "on" ]; then
@@ -179,4 +178,4 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$SRCNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
