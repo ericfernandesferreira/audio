@@ -88,7 +88,7 @@ CFLAGS="$SLKCFLAGS" \
   --localstatedir=/var \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --disable-qt5 \
+  --enable-qt4 \
   --enable-jack-version=jack2 \
   --build=$ARCH-slackware-linux
 
