@@ -5,7 +5,7 @@ Versão do FFMPEG : 3.2.4
 Esse pacote de áudio é obrigatório ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências do programa Audacious, VLC, Deadbeef, Mplayer, Qtractor entre outros.
 
 Requerimentos:
-- slackware64 14.2 / Current
+- slackware64 14.2
 - multilibs
 
 Como instalar:
@@ -38,7 +38,7 @@ FFMPEG Version: 3.2.4
 This audio package is required to be installed before compiling environments desktops and also the are dependencies for programs like Audacious, VLC, Deadbeef, Mplayer, Qtractor among others.
 
 Requirements:
-- slackware64 14.2 / Current
+- slackware64 14.2
 - multilibs
 
 How to install:
