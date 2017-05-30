@@ -27,11 +27,10 @@
 INST=1
 TMP=${TMP:-/tmp}
 
-
-
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
 for dir in \
+  nasm \
   ladspa_sdk \
   speex \
   portaudio \
