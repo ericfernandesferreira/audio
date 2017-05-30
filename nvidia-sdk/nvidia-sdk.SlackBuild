@@ -27,8 +27,8 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=nvidia-sdk
-SRCNAM=Video_Codec_SDK_7.1.9
-VERSION=${VERSION:-7.1.9}
+SRCNAM=Video_Codec_SDK_8.0.14
+VERSION=${VERSION:-8.0.14}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
