@@ -28,7 +28,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-3.2.4}
+VERSION=${VERSION:-3.3.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -111,7 +111,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-version3 \
   --enable-postproc \
   --enable-swscale \
-  --enable-x11grab \
   --enable-gnutls \
   --enable-libcdio \
   --enable-libssh \
