@@ -76,20 +76,24 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# --enable-libv4l2 \
 # --enable-avisynth \
-# --enable-libopenjpeg \
 # --enable-librtmp \
 # --enable-libopencore_amrnb \
 # --enable-libopencore_amrwb \
 # --enable-libvo-aacenc \
 # --enable-libfaac \
-# --arch=$ARCH \
 
+# For Nvidia Binary Users
 if [ "${NVENC:-on}" = "on" ]; then
   nvenc="--enable-nvenc"
 else
   nvenc="--disable-nvenc"
+fi
+
+if [ "${CUDA:-on}" = "on" ]; then
+  nvenc="--enable-cuda"
+else
+  nvenc="--disable-cuda"
 fi
 
 CFLAGS="$SLKCFLAGS" \
@@ -123,7 +127,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-openal \
   --enable-nonfree \
   --enable-libpulse \
-  --enable-fontconfig \
+  --enable-libfontconfig \
   --enable-libfreetype \
   --enable-libwavpack \
   --enable-openssl \
@@ -153,9 +157,12 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libxcb-xfixes \
   --enable-libbs2b \
   --enable-libspeex \
-  $nvenc \
-  --disable-stripping \
-  --arch=$ARCH
+  --enable-libv4l2 \
+  --enable-libopenjpeg \
+  --enable-libgme \
+  --arch=$ARCH \
+  $cuda \
+  $nvenc
 
 make -j5
 make install DESTDIR=$PKG
