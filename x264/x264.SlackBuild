@@ -27,7 +27,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=x264
-VERSION=${VERSION:-git}
+VERSION=${VERSION:-20170601}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -38,6 +38,8 @@ if [ -z "$ARCH" ]; then
        *) ARCH=$( uname -m ) ;;
   esac
 fi
+
+wget -c http://download.videolan.org/pub/videolan/x264/snapshots/$PRGNAM-snapshot-$VERSION-2245-stable.tar.bz2
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -63,10 +65,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM
-git clone git://git.videolan.org/x264.git
-cd $PRGNAM
-git checkout
+rm -rf $PRGNAM-snapshot-$VERSION-2245-stable
+tar xvf $CWD/$PRGNAM-snapshot-$VERSION-2245-stable.tar.bz2
+cd $PRGNAM-snapshot-$VERSION-2245-stable
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -81,7 +82,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --enable-shared \
   --enable-pic \
-  --enable-lto \
   --enable-strip
 
 make
