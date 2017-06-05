@@ -31,7 +31,6 @@ TMP=${TMP:-/tmp}
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
 for dir in \
-  nasm \
   ladspa_sdk \
   speex \
   celt \
@@ -54,8 +53,9 @@ for dir in \
   gsm \
   libmodplug \
   libbs2b \
+  libgme \
   nvidia-sdk \
-  ffmpeg-jack \
+  ffmpeg \
   libcue \
   libdv \
   gst-plugins-good0 \
