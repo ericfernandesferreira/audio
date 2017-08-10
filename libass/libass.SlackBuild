@@ -26,7 +26,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=libass
-VERSION=${VERSION:-0.13.6}
+VERSION=${VERSION:-0.13.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
