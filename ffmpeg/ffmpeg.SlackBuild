@@ -160,6 +160,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libv4l2 \
   --enable-libopenjpeg \
   --enable-libgme \
+  --enable-libwebp \
   --arch=$ARCH \
   $cuda \
   $nvenc
