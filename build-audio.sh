@@ -45,7 +45,7 @@ for dir in \
   SDL2_gfx \
   libwebp \
   SDL2_image \
-  smpeg \
+  smpeg2 \
   libmodplug \
   SDL2_mixer \
   SDL2_net \
