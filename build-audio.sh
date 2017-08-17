@@ -41,13 +41,21 @@ for dir in \
   x264 \
   x265 \
   xvidcore \
+  SDL2 \
+  SDL2_gfx \
+  libwebp \
+  SDL2_image \
+  smpeg \
+  libmodplug \
+  SDL2_mixer \
+  SDL2_net \
+  SDL2_ttf \
   OpenAL \
   opus \
   schroedinger \
   libbluray \
   libass \
   gsm \
-  libmodplug \
   libbs2b \
   libgme \
   nvidia-sdk \
