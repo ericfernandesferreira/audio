@@ -25,7 +25,6 @@
 # Set to 1 if you'd like to install/upgrade package as they are built.
 # This is recommended.
 INST=1
-
 TMP=${TMP:-/tmp}
 
 # This is the original directory where you started this script
@@ -33,10 +32,12 @@ AUDIOROOT=$(pwd)
 for dir in \
   ladspa_sdk \
   speex \
-  celt \
+  opus \
   jack2 \
+  pulseaudio \
   portaudio \
   qjackctl \
+  fluidsynth \
   libmp4v2 \
   faac \
   faad2 \
@@ -45,13 +46,20 @@ for dir in \
   x264 \
   x265 \
   xvidcore \
+  SDL2 \
+  SDL2_gfx \
+  libwebp \
+  SDL2_image \
+  smpeg2 \
+  libmodplug \
+  SDL2_mixer \
+  SDL2_net \
+  SDL2_ttf \
   OpenAL \
-  opus \
   schroedinger \
   libbluray \
   libass \
   gsm \
-  libmodplug \
   libbs2b \
   libgme \
   nvidia-sdk \
@@ -84,9 +92,13 @@ for dir in \
       exit 1
     fi
   fi
+  # mv $PACKAGE /home/backup/app/slackware/audio/install
+  # back to original directory
   cd $AUDIOROOT
 done
 
-# Dando prioridade necessária para o Jack e Qjack
-setcap cap_ipc_lock,cap_sys_nice=ep /usr/bin/jackd
-setcap cap_ipc_lock,cap_sys_nice=ep /usr/bin/qjackctl
+# Configurations
+echo default_driver=pulse > /etc/libao.conf
+mkdir -p /etc/openal
+echo "drivers = pulse" > /etc/openal/alsoft.conf
+echo "pulseaudio" >> /etc/slackpkg/blacklist
