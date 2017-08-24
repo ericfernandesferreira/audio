@@ -33,6 +33,7 @@ for dir in \
   ladspa_sdk \
   speex \
   portaudio \
+  fluidsynth \
   libmp4v2 \
   faac \
   faad2 \
