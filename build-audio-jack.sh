@@ -102,3 +102,7 @@ echo default_driver=pulse > /etc/libao.conf
 mkdir -p /etc/openal
 echo "drivers = pulse" > /etc/openal/alsoft.conf
 echo "pulseaudio" >> /etc/slackpkg/blacklist
+
+# Dando prioridade necessária para o Jack e Qjack
+setcap cap_ipc_lock,cap_sys_nice=ep /usr/bin/jackd
+setcap cap_ipc_lock,cap_sys_nice=ep /usr/bin/qjackctl
