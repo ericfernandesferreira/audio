@@ -89,7 +89,6 @@ for dir in \
       exit 1
     fi
   fi
-  # mv $PACKAGE /home/backup/app/slackware/audio/install
   # back to original directory
   cd $AUDIOROOT
 done
