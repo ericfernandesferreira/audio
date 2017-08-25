@@ -74,18 +74,21 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-cmake \
-  -DCMAKE_C_FLAGS="$SLKCFLAGS" \
-  -DCMAKE_INSTALL_PREFIX=/usr \
-  -DCMAKE_VERBOSE_MAKEFILE:BOOL="on" \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DLIB_SUFFIX=${LIBDIRSUFFIX}
-
-make
-make install/strip DESTDIR=$PKG
+mkdir -p build
+cd build
+  cmake \
+    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
+    -DCMAKE_VERBOSE_MAKEFILE:BOOL="on" \
+    -DCMAKE_BUILD_TYPE=Release ..
+  make
+  make install/strip DESTDIR=$PKG
+cd ..
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a COPYING $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a COPYING ChangeLog README $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
