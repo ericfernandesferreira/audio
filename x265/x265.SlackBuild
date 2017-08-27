@@ -125,14 +125,14 @@ ln -s $TMP/$SRCNAM$VERSION/build-12/libx265.a libx265_main12.a
 
 cd ..
 
+# Don't package the static libraries:
+rm -f $PKG/usr/lib${LIBDIRSUFFIX}/*.a
+
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-# Remove static library
-# rm -f $PKG/usr/lib${LIBDIRSUFFIX}/libx265.a
-
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a COPYING doc/intra/* $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a COPYING readme* doc/intra/* $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

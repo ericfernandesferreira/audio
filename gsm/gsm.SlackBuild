@@ -98,16 +98,17 @@ cp -p lib/libgsm.so.$VERSION $PKG/usr/lib$LIBDIRSUFFIX
 # some apps look for this in /usr/include
 ( cd $PKG/usr/include/libgsm ;  ln -s ../gsm/gsm.h gsm.h )
 
+# Don't package the static libraries:
+rm -f $PKG/usr/lib${LIBDIRSUFFIX}/*.a
+
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-( cd $PKG/usr/man
-  find . -type f -exec gzip -9 {} \;
-  for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-)
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a ChangeLog COPYRIGHT INSTALL MACHINES README $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a COPYRIGHT ChangeLog INSTALL MACHINES MANIFEST README $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

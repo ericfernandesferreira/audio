@@ -98,17 +98,18 @@ SPEEXDSP_LIBS="-L$PKG/usr/lib${LIBDIRSUFFIX} -lspeexdsp" \
 make LDFLAGS="-L/usr/lib${LIBDIRSUFFIX} -L$PKG/usr/lib${LIBDIRSUFFIX} -lspeexdsp"
 make install DESTDIR=$PKG
 
-find $PKG/usr/man -type f -exec gzip -9 '{}' \;
+# Don't package .la files:
+rm -f $PKG/usr/lib${LIBDIRSUFFIX}/*.la
 
-# Fix libspeex.la
-sed -i "s|-L$PKG.*/lib${LIBDIRSUFFIX} ||" $PKG/usr/lib${LIBDIRSUFFIX}/libspeex.la
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README* TODO $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 find $PKG/usr/doc -type f -exec chown root:root {} \; -exec chmod 644 {} \;
-
-find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
-  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc

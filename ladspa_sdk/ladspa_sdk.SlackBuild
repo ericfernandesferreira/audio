@@ -40,7 +40,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://pkgs.fedoraproject.org/repo/pkgs/ladspa/ladspa_sdk_1.13.tgz/671be3e1021d0722cadc7fb27054628e/ladspa_sdk_1.13.tgz
+wget -c http://pkgs.fedoraproject.org/repo/pkgs/ladspa/ladspa_sdk_1.13.tgz/671be3e1021d0722cadc7fb27054628e/${PRGNAM}_$VERSION.tgz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -67,7 +67,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM
-tar xvf $CWD/ladspa_sdk_1.13.tgz
+tar xvf $CWD/${PRGNAM}_$VERSION.tgz
 cd $PRGNAM
 chown -R root:root .
 find -L . \
