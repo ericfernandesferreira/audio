@@ -23,7 +23,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=SDL2
-VERSION=${VERSION:-2.0.5}
+VERSION=${VERSION:-2.0.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
