@@ -27,32 +27,31 @@
 INST=1
 TMP=${TMP:-/tmp}
 
-#  ladspa_sdk \
-#  speex \
-#  portaudio \
-#  fluidsynth \
-#  libmp4v2 \
-#  faac \
-#  faad2 \
-#  lame \
-#  twolame \
-#  x264 \
-#  x265 \
-#  xvidcore \
-#  SDL2 \
-#  SDL2_gfx \
-#  libwebp \
-#  SDL2_image \
-#  smpeg2 \
-#  libmodplug \
-#  SDL2_mixer \
-#  SDL2_net \
-#  SDL2_ttf \
-#  OpenAL \
-
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
 for dir in \
+  ladspa_sdk \
+  speex \
+  portaudio \
+  fluidsynth \
+  libmp4v2 \
+  faac \
+  faad2 \
+  lame \
+  twolame \
+  x264 \
+  x265 \
+  xvidcore \
+  SDL2 \
+  SDL2_gfx \
+  libwebp \
+  SDL2_image \
+  smpeg2 \
+  libmodplug \
+  SDL2_mixer \
+  SDL2_net \
+  SDL2_ttf \
+  OpenAL \
   opus \
   libbluray \
   libass \
