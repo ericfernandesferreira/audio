@@ -56,7 +56,6 @@ for dir in \
   SDL2_net \
   SDL2_ttf \
   OpenAL \
-  schroedinger \
   libbluray \
   libass \
   gsm \
