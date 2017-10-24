@@ -37,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://downloads.xiph.org/releases/$PRGNAM/$PRGNAM-$VERSION.tar.gz
+wget -c https://archive.mozilla.org/pub/opus/$PRGNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
