@@ -61,7 +61,6 @@ for dir in \
   gsm \
   libbs2b \
   libgme \
-  nvidia-sdk \
   ffmpeg \
   libcue \
   libdv \
