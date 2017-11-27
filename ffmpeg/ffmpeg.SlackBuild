@@ -84,24 +84,10 @@ find -L . \
 # --enable-libfaac \
 # --enable-libschroedinger \
 
-# For Nvidia Binary Users
-if [ "${NVENC:-on}" = "on" ]; then
-  nvenc="--enable-nvenc"
-else
-  nvenc="--disable-nvenc"
-fi
-
-if [ "${CUDA:-off}" = "off" ]; then
-  nvenc="--enable-cuda"
-else
-  nvenc="--disable-cuda"
-fi
-
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
-  --extra-cflags="-I/usr/include/nvidia-sdk" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --shlibdir=/usr/lib${LIBDIRSUFFIX} \
   --docdir=/usr/doc/$PRGNAM-$VERSION/html \
@@ -161,9 +147,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libopenjpeg \
   --enable-libgme \
   --enable-libwebp \
-  --arch=$ARCH \
-  $cuda \
-  $nvenc
+  --arch=$ARCH
 
 make -j5
 make install DESTDIR=$PKG
