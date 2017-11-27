@@ -11,7 +11,9 @@ Requerimentos:
 Como instalar:
 - você precisa baixar o .zip ou clonar o git e então executar o script
 sh build-audio.sh (para compilar com pulseaudio)
+sh build-audio-nvidia.sh (para compilar com pulseaudio + nvenc)
 sh build-audio-jack.sh (para compilar em jack audio)
+sh build-audio-jack-nvidia.sh (para compilar em jack audio + nvenc)
 
 *** IMPORTANTÍSSIMO
 Caso for usar o Wine, é bom compilar os pacotes GSM e OpenAL em 32bits
@@ -44,7 +46,9 @@ Requirements:
 How to install:
 - you need to download the .zip or clone git and then run the script
 sh build-audio.sh (for compile pulseaudio)
+sh build-audio-nvidia.sh (for compile pulseaudio + nvenc)
 sh build-audio-jack.sh (for compile jack audio)
+sh build-audio-jack-nvidia.sh (for compile jack audio + nvenc)
 
 *** IMPORTANT
 if you will use Wine is good to compile packages like GSM and OpenAL in 32bits
