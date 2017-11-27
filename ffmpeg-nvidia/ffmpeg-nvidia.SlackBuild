@@ -1,0 +1,188 @@
+#!/bin/sh
+
+# Slackware build script for ffmpeg
+
+# Copyright 2010-2015 Heinz Wiesinger, Amsterdam, The Netherlands
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ''AS IS'' AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# Originally written by core (eroc@linuxmail.org)
+# Modified by Robby Workman <rworkman@slackbuilds.org>
+
+# Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
+
+PRGNAM=ffmpeg
+VERSION=${VERSION:-3.4}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i586 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+wget -c http://ffmpeg.org/releases/$PRGNAM-$VERSION.tar.bz2
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+if [ "$ARCH" = "i586" ]; then
+  SLKCFLAGS="-O2 -march=i586 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+else
+  SLKCFLAGS="-O2"
+  LIBDIRSUFFIX=""
+fi
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2
+cd $PRGNAM-$VERSION
+chown -R root:root .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+# --enable-avisynth \
+# --enable-librtmp \
+# --enable-libopencore_amrnb \
+# --enable-libopencore_amrwb \
+# --enable-libvo-aacenc \
+# --enable-libfaac \
+# --enable-libschroedinger \
+
+# For Nvidia Binary Users
+if [ "${NVENC:-on}" = "on" ]; then
+  nvenc="--enable-nvenc"
+else
+  nvenc="--disable-nvenc"
+fi
+
+if [ "${CUDA:-off}" = "off" ]; then
+  nvenc="--enable-cuda"
+else
+  nvenc="--disable-cuda"
+fi
+
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
+  --extra-cflags="-I/usr/include/nvidia-sdk" \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --shlibdir=/usr/lib${LIBDIRSUFFIX} \
+  --docdir=/usr/doc/$PRGNAM-$VERSION/html \
+  --mandir=/usr/man \
+  --disable-debug \
+  --disable-static \
+  --enable-shared \
+  --enable-pthreads \
+  --enable-libtheora \
+  --enable-libvorbis \
+  --enable-gpl \
+  --enable-version3 \
+  --enable-postproc \
+  --enable-swscale \
+  --enable-gnutls \
+  --enable-libcdio \
+  --enable-libssh \
+  --enable-libcaca \
+  --enable-libsmbclient \
+  --enable-opengl \
+  --enable-libmp3lame \
+  --enable-libx264 \
+  --enable-libxvid \
+  --enable-openal \
+  --enable-nonfree \
+  --enable-libpulse \
+  --enable-libfontconfig \
+  --enable-libfreetype \
+  --enable-libwavpack \
+  --enable-openssl \
+  --enable-libopus \
+  --enable-libfribidi \
+  --enable-libbluray \
+  --enable-libx265 \
+  --enable-libass \
+  --enable-libgsm \
+  --enable-ladspa \
+  --enable-bzlib \
+  --enable-zlib \
+  --enable-libtwolame \
+  --enable-libmodplug \
+  --enable-libvpx \
+  --enable-avfilter \
+  --enable-avresample \
+  --enable-hardcoded-tables \
+  --enable-lzma \
+  --enable-sdl \
+  --enable-vaapi \
+  --enable-vdpau \
+  --enable-xlib \
+  --enable-libxcb \
+  --enable-libxcb-shm \
+  --enable-libxcb-xfixes \
+  --enable-libbs2b \
+  --enable-libspeex \
+  --enable-libv4l2 \
+  --enable-libopenjpeg \
+  --enable-libgme \
+  --enable-libwebp \
+  --arch=$ARCH \
+  $cuda \
+  $nvenc
+
+make -j5
+make install DESTDIR=$PKG
+make install-man DESTDIR=$PKG
+
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/txt
+cp -a CONTRIBUTING* COPYING* CREDITS Changelog INSTALL* LICENSE* MAINTAINERS \
+README* RELEASE* VERSION $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a doc/*.txt $PKG/usr/doc/$PRGNAM-$VERSION/txt/
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
