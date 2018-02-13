@@ -1,6 +1,6 @@
 Pulseaudio incluso no Slackware
 Versão Jack2 : 1.9.12
-Versão do FFMPEG : 3.4
+Versão do FFMPEG : 3.4.1
 
 Esse pacote de áudio é obrigatório ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências do programa Audacious, VLC, Deadbeef, Mplayer, Qtractor entre outros.
 
@@ -35,7 +35,7 @@ upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
 
 Pulseaudio already include
 Jack Version : 1.9.12
-FFMPEG Version: 3.4
+FFMPEG Version: 3.4.1
 
 This audio package is required to be installed before compiling environments desktops and also the are dependencies for programs like Audacious, VLC, Deadbeef, Mplayer, Qtractor among others.
 
