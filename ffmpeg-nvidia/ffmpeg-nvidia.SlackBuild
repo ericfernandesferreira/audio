@@ -28,7 +28,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-3.4}
+VERSION=${VERSION:-3.4.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -84,24 +84,12 @@ find -L . \
 # --enable-libfaac \
 # --enable-libschroedinger \
 
-# For Nvidia Binary Users
-if [ "${NVENC:-on}" = "on" ]; then
-  nvenc="--enable-nvenc"
-else
-  nvenc="--disable-nvenc"
-fi
-
-if [ "${CUDA:-off}" = "off" ]; then
-  nvenc="--enable-cuda"
-else
-  nvenc="--disable-cuda"
-fi
-
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
-  --extra-cflags="-I/usr/include/nvidia-sdk" \
+  --extra-cflags=-I/usr/include/cuda \
+  --extra-cflags=-I/usr/include/nvidia-sdk \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --shlibdir=/usr/lib${LIBDIRSUFFIX} \
   --docdir=/usr/doc/$PRGNAM-$VERSION/html \
@@ -161,9 +149,11 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libopenjpeg \
   --enable-libgme \
   --enable-libwebp \
-  --arch=$ARCH \
-  $cuda \
-  $nvenc
+  --enable-libnpp \
+  --enable-cuda \
+  --enable-cuvid \
+  --enable-nvenc \
+  --arch=$ARCH
 
 make -j5
 make install DESTDIR=$PKG
@@ -179,10 +169,10 @@ mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/txt
 cp -a CONTRIBUTING* COPYING* CREDITS Changelog INSTALL* LICENSE* MAINTAINERS \
 README* RELEASE* VERSION $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a doc/*.txt $PKG/usr/doc/$PRGNAM-$VERSION/txt/
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+cat $CWD/$PRGNAM-nvidia.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-nvidia-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

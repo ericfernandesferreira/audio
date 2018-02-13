@@ -5,15 +5,15 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-      |-----handy-ruler------------------------------------------------------|
-ffmpeg: FFmpeg (Software to record, convert and stream audio and video)
-ffmpeg:
-ffmpeg: FFmpeg is a complete solution to record, convert and stream audio
-ffmpeg: and video. It includes libavcodec, the leading audio/video codec
-ffmpeg: library. FFmpeg is developed under Linux, but it can compiled
-ffmpeg: under most operating systems, including Windows.
-ffmpeg:
-ffmpeg: Homepage: http://ffmpeg.mplayerhq.hu
-ffmpeg:
-ffmpeg:
-ffmpeg:
+             |-----handy-ruler------------------------------------------------------|
+ffmpeg-nvidia: FFmpeg (Software to record, convert and stream audio and video)
+ffmpeg-nvidia:
+ffmpeg-nvidia: FFmpeg is a complete solution to record, convert and stream audio
+ffmpeg-nvidia: and video. It includes libavcodec, the leading audio/video codec
+ffmpeg-nvidia: library. FFmpeg is developed under Linux, but it can compiled
+ffmpeg-nvidia: under most operating systems, including Windows.
+ffmpeg-nvidia:
+ffmpeg-nvidia: Homepage: http://ffmpeg.mplayerhq.hu
+ffmpeg-nvidia:
+ffmpeg-nvidia: This version enable nvenc and cuda for nvidia binary drivers.
+ffmpeg-nvidia:
