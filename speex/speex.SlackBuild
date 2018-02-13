@@ -77,25 +77,20 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# Fix end-of-line encoding.
-sed -i 's/\r//' README.TI-DSP
-
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
-SPEEXDSP_CFLAGS="-I$PKG/usr/include" \
-SPEEXDSP_LIBS="-L$PKG/usr/lib${LIBDIRSUFFIX} -lspeexdsp" \
 ./configure \
   --prefix=/usr \
+  --sysconfdir=/etc \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --enable-static=no \
+  --disable-static \
   --enable-binaries \
   --enable-sse \
   --build=$ARCH-slackware-linux
 
-# Hack to also make it look in the right directory on multilib systems
-make LDFLAGS="-L/usr/lib${LIBDIRSUFFIX} -L$PKG/usr/lib${LIBDIRSUFFIX} -lspeexdsp"
+make
 make install DESTDIR=$PKG
 
 # Don't package .la files:
