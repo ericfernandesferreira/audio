@@ -26,7 +26,7 @@
 
 PRGNAM=libgme
 SRCNAM=game-music-emu
-VERSION=${VERSION:-0.6.1}
+VERSION=${VERSION:-0.6.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -38,7 +38,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://bitbucket.org/mpyne/game-music-emu/downloads/$SRCNAM-$VERSION.tar.bz2
+wget -c https://bitbucket.org/mpyne/game-music-emu/downloads/$SRCNAM-$VERSION.tar.xz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -65,7 +65,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION
-tar xvf $CWD/$SRCNAM-$VERSION.tar.bz2
+tar xvf $CWD/$SRCNAM-$VERSION.tar.xz
 cd $SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
