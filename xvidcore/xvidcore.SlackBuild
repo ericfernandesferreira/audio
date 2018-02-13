@@ -26,7 +26,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=xvidcore
-VERSION=${VERSION:-1.3.4}
+VERSION=${VERSION:-1.3.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
