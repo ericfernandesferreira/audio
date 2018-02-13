@@ -40,8 +40,6 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-# wget -c https://www.dropbox.com/s/psvo22wfuydvu9o/$SRCNAM.zip
-
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
@@ -77,13 +75,12 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 cd Samples/common/inc
-mkdir -p $PKG/usr/include/$PRGNAM
 mkdir -p $PKG/usr/include/$PRGNAM/GL
-# mkdir -p $PKG/usr/local/include
-install -D -m644 *.h $PKG/usr/include/$PRGNAM/
+install -m644 *.h $PKG/usr/include/$PRGNAM/
+install -m644 GL/*.h $PKG/usr/include/$PRGNAM/GL
+cd $TMP/$SRCNAM/Samples/common/lib/linux/x86_64/
+install -Dm644 libGLEW.a $PKG/usr/lib64/libGLEW.a
 # ln -s $PKG/usr/$PRGNAM/include/nvEncodeAPI.h $PKG/usr/local/include
-cd GL
-install -D -m644 *.h $PKG/usr/include/$PRGNAM/GL
 
 cd $TMP/$SRCNAM
 
