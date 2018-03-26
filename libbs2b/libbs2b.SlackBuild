@@ -37,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://sourceforge.net/projects/bs2b/files/libbs2b/3.1.0/$PRGNAM-$VERSION.tar.bz2
+wget -c https://netix.dl.sourceforge.net/project/bs2b/libbs2b/$VERSION/$PRGNAM-$VERSION.tar.bz2
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
