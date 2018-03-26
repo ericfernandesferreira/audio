@@ -37,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://downloads.sourceforge.net/libdv/$PRGNAM-$VERSION.tar.gz
+wget -c https://netix.dl.sourceforge.net/project/libdv/libdv/$VERSION/$PRGNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
