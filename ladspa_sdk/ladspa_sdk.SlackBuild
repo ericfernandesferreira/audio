@@ -40,7 +40,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://pkgs.fedoraproject.org/repo/pkgs/ladspa/ladspa_sdk_1.13.tgz/671be3e1021d0722cadc7fb27054628e/${PRGNAM}_$VERSION.tgz
+wget -c http://www.ladspa.org/download/${PRGNAM}_$VERSION.tgz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
