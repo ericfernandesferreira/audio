@@ -26,7 +26,7 @@
 
 PRGNAM=x265
 SRCNAM=x265_
-VERSION=${VERSION:-2.6}
+VERSION=${VERSION:-2.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -64,9 +64,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf ${SRCNAM}v$VERSION
+rm -rf $SRCNAM$VERSION
 tar xvf $CWD/$SRCNAM$VERSION.tar.gz
-cd ${SRCNAM}v$VERSION
+cd $SRCNAM$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -90,7 +90,7 @@ cd build-12
     -DENABLE_CLI=OFF \
     -DENABLE_SHARED=OFF \
     -DCMAKE_BUILD_TYPE=Release ../source
-  make
+  make -j5
 
 cd ../build-10
   cmake \
@@ -103,11 +103,11 @@ cd ../build-10
     -DENABLE_CLI=OFF \
     -DENABLE_SHARED=OFF \
     -DCMAKE_BUILD_TYPE=Release ../source
-  make
+  make -j5
 
 cd ../build-8
-ln -s $TMP/${SRCNAM}v$VERSION/build-10/libx265.a libx265_main10.a
-ln -s $TMP/${SRCNAM}v$VERSION/build-12/libx265.a libx265_main12.a
+ln -s $TMP/$SRCNAM$VERSION/build-10/libx265.a libx265_main10.a
+ln -s $TMP/$SRCNAM$VERSION/build-12/libx265.a libx265_main12.a
 
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
@@ -120,7 +120,7 @@ ln -s $TMP/${SRCNAM}v$VERSION/build-12/libx265.a libx265_main12.a
     -DLINKED_10BIT=ON \
     -DLINKED_12BIT=ON \
     -DCMAKE_BUILD_TYPE=Release ../source
-  make
+  make -j5
   make install DESTDIR=$PKG
 
 cd ..
