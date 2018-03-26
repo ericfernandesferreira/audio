@@ -37,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://downloads.sourceforge.net/twolame/$PRGNAM-$VERSION.tar.gz
+wget -c https://github.com/njh/twolame/releases/download/$VERSION/$PRGNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
