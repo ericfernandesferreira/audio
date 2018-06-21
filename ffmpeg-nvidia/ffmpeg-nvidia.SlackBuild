@@ -28,7 +28,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-3.4.2}
+VERSION=${VERSION:-4.0.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -76,6 +76,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+# --enable-gnutls \
 # --enable-avisynth \
 # --enable-librtmp \
 # --enable-libopencore_amrnb \
@@ -89,11 +90,14 @@ CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --extra-cflags=-I/usr/include/cuda \
+  --extra-cflags=-I/usr/include/ffnvcodec \
   --extra-cflags=-I/usr/include/nvidia-sdk \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --shlibdir=/usr/lib${LIBDIRSUFFIX} \
   --docdir=/usr/doc/$PRGNAM-$VERSION/html \
   --mandir=/usr/man \
+  --disable-amd3dnow \
+  --disable-amd3dnowext \
   --disable-debug \
   --disable-static \
   --enable-shared \
@@ -104,7 +108,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-version3 \
   --enable-postproc \
   --enable-swscale \
-  --enable-gnutls \
   --enable-libcdio \
   --enable-libssh \
   --enable-libcaca \
@@ -153,6 +156,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-cuda \
   --enable-cuvid \
   --enable-nvenc \
+  --enable-libjack \
   --arch=$ARCH
 
 make -j5
