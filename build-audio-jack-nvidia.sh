@@ -62,6 +62,7 @@ for dir in \
   libbs2b \
   libgme \
   nvidia-sdk \
+  nv-codec-headers \
   ffmpeg-nvidia \
   libcue \
   libdv \
