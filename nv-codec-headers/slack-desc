@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                |-----handy-ruler------------------------------------------------------|
+nv-codec-headers: External headers are no longer welcome in the ffmpeg codebase because
+nv-codec-headers: they increase the maintenance burden. However, in the NVidia case the
+nv-codec-headers: vanilla headers need some modifications to be usable in ffmpeg
+nv-codec-headers: therefore we still provide them, but in a separate repository.
+nv-codec-headers:
+nv-codec-headers:
+nv-codec-headers:
+nv-codec-headers:
+nv-codec-headers:
+nv-codec-headers: Homepage: https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git
+nv-codec-headers:
