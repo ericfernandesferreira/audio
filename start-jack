@@ -1,3 +1,0 @@
-# Comando para executar o Jack sem precisar do Qjackctl
-
-/usr/bin/jackd -dalsa -dhw:0 -r48000 -p1024 -n2

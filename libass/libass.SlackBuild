@@ -26,7 +26,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=libass
-VERSION=${VERSION:-0.14.0}
+VERSION=${VERSION:-0.16.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -79,10 +79,10 @@ CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --sysconfdir=/etc \
+  --localstatedir=/var \
   --enable-static=no \
-  --enable-harfbuzz \
   --enable-fontconfig \
-  --disable-silent-rules \
   --build=$ARCH-slackware-linux
 
 make
