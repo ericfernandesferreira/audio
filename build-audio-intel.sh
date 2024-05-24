@@ -30,6 +30,7 @@ TMP=${TMP:-/tmp}
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
 for dir in \
+  meson \
   soxr \
   webrtc \
   libfdk-aac \
@@ -58,7 +59,10 @@ for dir in \
   ffmpeg-intel \
   libde265 \
   libdv \
+  liblc3 \
+  lc3plus \
   gst-plugins-good \
+  libcamera \
   libldac \
   libfreeaptx \
   pipewire \

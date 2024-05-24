@@ -24,7 +24,7 @@
 
 PRGNAM=opencl-clhpp
 SRCNAM=OpenCL-CLHPP
-VERSION=${VERSION:-2.0.16}
+VERSION=${VERSION:-2024.05.08}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -79,10 +79,10 @@ cd build
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DBUILD_DOCS=OFF \
-    -DBUILD_TESTS=OFF \
+    -DBUILD_TESTING=OFF \
     -DBUILD_EXAMPLES=OFF \
     -DCMAKE_BUILD_TYPE=Release ..
-  make -j9 VERBOSE=1
+  make -j17 VERBOSE=1
   make install DESTDIR=$PKG
 cd ..
 

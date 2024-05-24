@@ -24,7 +24,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=pipewire
-VERSION=${VERSION:-0.3.51}
+VERSION=${VERSION:-1.1.81}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -79,17 +79,20 @@ cd build
     --libdir=lib${LIBDIRSUFFIX} \
     --sysconfdir=/etc \
     --localstatedir=/var \
-    --mandir=/usr/man \
     --buildtype=release \
     -Djack=enabled \
     -Dtest=disabled \
-    -Dvulkan=enabled \
+    -Dvulkan=disabled \
     -Dtests=disabled \
     -Djack-devel=true \
     -Dffmpeg=disabled \
     -Dsystemd=disabled \
+    -Dexamples=disabled \
+    -Dpw-cat-ffmpeg=enabled \
     -Dpipewire-jack=enabled \
+    -Dbluez5-codec-lc3=enabled \
     -Dinstalled_tests=disabled \
+    -Dbluez5-codec-lc3plus=disabled \
     -Dsession-managers=wireplumber \
     ..
 
@@ -104,7 +107,7 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 install -Dm644 $CWD/$PRGNAM.desktop $PKG/etc/xdg/autostart/$PRGNAM.desktop
 install -Dm644 $CWD/wireplumber.desktop $PKG/etc/xdg/autostart/wireplumber.desktop
 install -Dm644 $CWD/$PRGNAM-pulse.desktop $PKG/etc/xdg/autostart/$PRGNAM-pulse.desktop
-#install -Dm644 $CWD/$PRGNAM-media-session.desktop $PKG/etc/xdg/autostart/$PRGNAM-media-session.desktop
+# install -Dm644 $CWD/$PRGNAM-media-session.desktop $PKG/etc/xdg/autostart/$PRGNAM-media-session.desktop
 
 # Increasing RLIMIT_MEMLOCK for JACK clients
 install -Dm644 $CWD/50-custom.conf $PKG/etc/security/limits.d/50-custom.conf
@@ -121,9 +124,6 @@ install -Dm644 $CWD/50-custom.conf $PKG/etc/security/limits.d/50-custom.conf
 
 # Enable SCB-XQ (audio quality) for bluetooth audio using media-session
 #sed -i 's/#bluez5.sbc-xq-support = false/bluez5.sbc-xq-support = true/g' $PKG/usr/share/pipewire/media-session.d/bluez-monitor.conf
-
-find $PKG/usr/man -type f -exec gzip -9 {} \;
-for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a CODE* COPYING INSTALL* LICENSE NEWS README* $PKG/usr/doc/$PRGNAM-$VERSION

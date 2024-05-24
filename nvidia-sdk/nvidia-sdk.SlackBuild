@@ -24,7 +24,7 @@
 
 PRGNAM=nvidia-sdk
 SRCNAM=Video_Codec_SDK
-VERSION=${VERSION:-11.1.5}
+VERSION=${VERSION:-12.2.72}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 

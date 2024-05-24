@@ -1,0 +1,3 @@
+Versão limite = 4.4.4
+Dependências necessárias = vulkan > 1.3
+Dependência atual = vulkan 1.2.176.1

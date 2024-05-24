@@ -24,7 +24,7 @@
 
 PRGNAM=intel-mediasdk
 SRCNAM=MediaSDK
-VERSION=${VERSION:-22.4.2}
+VERSION=${VERSION:-23.2.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -87,7 +87,7 @@ cd build
     -DENABLE_WAYLAND:BOOL=ON \
     -DENABLE_X11_DRI3:BOOL=ON \
     -DCMAKE_BUILD_TYPE=Release ..
-  make -j9
+  make -j17
   make install DESTDIR=$PKG
 cd ..
 

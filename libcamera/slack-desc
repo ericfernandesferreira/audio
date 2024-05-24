@@ -6,14 +6,14 @@
 # leave one space after the ':'.
 
          |-----handy-ruler------------------------------------------------------|
+libcamera: **A complex camera support library for Linux, Android, and ChromeOS**
+libcamera: Cameras are complex devices that need heavy hardware image processing
+libcamera: operations. Control of the processing is based on advanced algorithms
+libcamera: that must run on a programmable processor. This has traditionally been
+libcamera: implemented in a dedicated MCU in the camera, but in embedded devices
+libcamera: algorithms have been moved to the main CPU to save cost. Blurring the
+libcamera: boundary between camera devices and Linux often left the user with no
+libcamera: other option than a vendor-specific closed-source solution.
 libcamera:
-libcamera:
-libcamera:
-libcamera:
-libcamera:
-libcamera:
-libcamera:
-libcamera:
-libcamera:
-libcamera: Homepage: 
+libcamera: Homepage: https://git.libcamera.org/libcamera
 libcamera:
