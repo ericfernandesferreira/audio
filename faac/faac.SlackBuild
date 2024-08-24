@@ -29,6 +29,7 @@
 
 PRGNAM=faac
 VERSION=${VERSION:-1.30}
+SRCVERSION=${SRCVERSION:-1_30}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -40,7 +41,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://ufpr.dl.sourceforge.net/project/faac/faac-src/$PRGNAM-$VERSION/$PRGNAM-1_30.tar.gz
+wget -c https://github.com/knik0/faac/archive/refs/tags/$SRCVERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -66,9 +67,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-1_30
-tar xvf $CWD/$PRGNAM-1_30.tar.gz
-cd $PRGNAM-1_30
+rm -rf $PRGNAM-$SRCVERSION
+tar xvf $CWD/$SRCVERSION.tar.gz
+cd $PRGNAM-$SRCVERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
