@@ -31,6 +31,7 @@ TMP=${TMP:-/tmp}
 AUDIOROOT=$(pwd)
 for dir in \
   meson \
+  libva \
   soxr \
   webrtc \
   libfdk-aac \
@@ -55,7 +56,10 @@ for dir in \
   libbs2b \
   libgme \
   aom \
-  intel-mediasdk \
+  libvpl \
+  intel-gmmlib \
+  intel-media-driver \
+  intel-onevpl \
   ffmpeg-intel \
   libde265 \
   libdv \
