@@ -36,7 +36,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://freedesktop.org/software/pulseaudio/webrtc-audio-processing/$SRCNAM-$VERSION.tar.gz
+wget --no-check-certificate -c http://freedesktop.org/software/pulseaudio/webrtc-audio-processing/$SRCNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
