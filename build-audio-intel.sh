@@ -58,6 +58,7 @@ for dir in \
   aom \
   libvpl \
   intel-gmmlib \
+  intel-mediasdk \
   intel-media-driver \
   intel-onevpl \
   ffmpeg-intel \
