@@ -25,7 +25,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://ufpr.dl.sourceforge.net/project/soxr/$PRGNAM-$VERSION-Source.tar.xz
+wget -c https://github.com/chirlu/soxr/archive/refs/tags/$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -52,9 +52,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION-Source
-tar xvf $CWD/$PRGNAM-$VERSION-Source.tar.xz
-cd $PRGNAM-$VERSION-Source
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$VERSION.tar.gz
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
