@@ -77,7 +77,6 @@ cd build
     --libdir=lib${LIBDIRSUFFIX} \
     --sysconfdir=/etc \
     --localstatedir=/var \
-    --mandir=/usr/man \
     --buildtype=release \
     -Dpipelines=all \
     -Ddocumentation=disabled \
