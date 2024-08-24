@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+      |-----handy-ruler------------------------------------------------------|
+libvpl: Intel® Video Processing Library (Intel® VPL) provides access to
+libvpl: hardware accelerated video decode, encode, and processing capabilities
+libvpl: on Intel® GPUs to support AI visual inference, media delivery, cloud
+libvpl: gaming, and virtual desktop infrastructure use cases.
+libvpl:
+libvpl:
+libvpl:
+libvpl:
+libvpl:
+libvpl:
+libvpl: Homepage : https://github.com/intel/libvpl
