@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+            |-----handy-ruler------------------------------------------------------|
+intel-onevpl: Intel® Video Processing Library (Intel® VPL) GPU Runtime is a Runtime
+intel-onevpl: implementation of Intel® VPL API for Intel Gen GPUs. Runtime provides
+intel-onevpl: access to hardware-accelerated video decode, encode and filtering.
+intel-onevpl:
+intel-onevpl: Supported video encoders: HEVC, AVC, MPEG-2, JPEG, VP9
+intel-onevpl: Supported video decoders: HEVC, AVC, VP8, VP9, MPEG-2, VC1, JPEG, AV1,
+intel-onevpl: VVC
+intel-onevpl: Supported video pre-processing filters: Color Conversion, Deinterlace,
+intel-onevpl: Denoise, Resize, Rotate, Composition
+intel-onevpl:
+intel-onevpl: Homepage : https://github.com/intel/vpl-gpu-rt
