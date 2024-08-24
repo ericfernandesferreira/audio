@@ -36,6 +36,8 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
+wget -c --no-check-certificate 'https://docs.google.com/uc?export=download&id=10mHj8Np0uH_QM653SKRAMdvOQx8PceTR' -O ${SRCNAM}_$VERSION.zip
+
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
