@@ -1,6 +1,6 @@
 Versão Jack2 : 1.9.22
-Versão Pipewire : 1.1.81
-Versão FFMPEG : 4.4.4
+Versão Pipewire : 1.2.3
+Versão FFMPEG : 4.4.5
 NvidiaSDK : 12.2.72
 IntelSDK : 23.2.2
 
@@ -41,8 +41,8 @@ upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
 ---------------------------------------------------------------
 
 Jack2 Version : 1.9.22
-Pipewire Version : 1.1.81
-FFMPEG Version: 4.4.4
+Pipewire Version : 1.2.3
+FFMPEG Version: 4.4.5
 NvidiaSDK : 12.2.72
 IntelSDK : 23.2.2
 
@@ -60,7 +60,7 @@ How to install:
 - you need to clone with command : git clone https://gitlab.com/grinder/audio.git
 And then inside the created folder run the installation script
 sh build-audio-nvidia.sh (for nvidia users)
-sh build-audio-intel.sh (for integred intel users)
+sh build-audio-intel.sh (for intel users)
 
 *** IMPORTANT
 if you will use Wine is good to compile packages like GSM and OpenAL in 32bits
