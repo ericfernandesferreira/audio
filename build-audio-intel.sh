@@ -32,6 +32,7 @@ AUDIOROOT=$(pwd)
 for dir in \
   meson \
   libva \
+  libva-utils \
   soxr \
   webrtc \
   libfdk-aac \
