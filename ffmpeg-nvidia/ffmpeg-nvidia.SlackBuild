@@ -28,7 +28,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-4.0.1}
+VERSION=${VERSION:-7.0.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -76,14 +76,18 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# --enable-gnutls \
+# --enable-libwavpack \
 # --enable-avisynth \
+# --enable-gnutls \
+# --enable-avresample \
 # --enable-librtmp \
 # --enable-libopencore_amrnb \
 # --enable-libopencore_amrwb \
-# --enable-libvo-aacenc \
-# --enable-libfaac \
-# --enable-libschroedinger \
+# --enable-ladspa \
+# --enable-libglslang \
+
+# --enable-cuda-nvcc \ 'Only if you are using cuda'
+# --enable-npp \ 'Only if you are using cuda'
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -96,8 +100,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --shlibdir=/usr/lib${LIBDIRSUFFIX} \
   --docdir=/usr/doc/$PRGNAM-$VERSION/html \
   --mandir=/usr/man \
-  --disable-amd3dnow \
-  --disable-amd3dnowext \
   --disable-debug \
   --disable-static \
   --enable-shared \
@@ -111,37 +113,31 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libcdio \
   --enable-libssh \
   --enable-libcaca \
-  --enable-libsmbclient \
   --enable-opengl \
   --enable-libmp3lame \
   --enable-libx264 \
+  --enable-libx265 \
   --enable-libxvid \
   --enable-openal \
   --enable-nonfree \
   --enable-libpulse \
   --enable-libfontconfig \
   --enable-libfreetype \
-  --enable-libwavpack \
   --enable-openssl \
   --enable-libopus \
   --enable-libfribidi \
   --enable-libbluray \
-  --enable-libx265 \
   --enable-libass \
   --enable-libgsm \
-  --enable-ladspa \
   --enable-bzlib \
   --enable-zlib \
   --enable-libtwolame \
   --enable-libmodplug \
   --enable-libvpx \
   --enable-avfilter \
-  --enable-avresample \
   --enable-hardcoded-tables \
   --enable-lzma \
-  --enable-sdl \
-  --enable-vaapi \
-  --enable-vdpau \
+  --enable-sdl2 \
   --enable-xlib \
   --enable-libxcb \
   --enable-libxcb-shm \
@@ -152,14 +148,26 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libopenjpeg \
   --enable-libgme \
   --enable-libwebp \
-  --enable-libnpp \
+  --enable-gmp \
+  --enable-libdrm \
+  --enable-vaapi \
+  --enable-vdpau \
   --enable-cuda \
   --enable-cuvid \
   --enable-nvenc \
+  --enable-nvdec \
+  --enable-ffnvcodec \
+  --enable-libsoxr \
+  --enable-libxml2 \
+  --enable-librsvg \
+  --enable-libsmbclient \
+  --enable-libaom \
   --enable-libjack \
+  --enable-libfdk-aac \
+  --enable-vulkan \
   --arch=$ARCH
 
-make -j5
+make -j17
 make install DESTDIR=$PKG
 make install-man DESTDIR=$PKG
 
@@ -171,7 +179,7 @@ for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; r
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/txt
 cp -a CONTRIBUTING* COPYING* CREDITS Changelog INSTALL* LICENSE* MAINTAINERS \
-README* RELEASE* VERSION $PKG/usr/doc/$PRGNAM-$VERSION
+  README* RELEASE* VERSION $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a doc/*.txt $PKG/usr/doc/$PRGNAM-$VERSION/txt/
 cat $CWD/$PRGNAM-nvidia.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 

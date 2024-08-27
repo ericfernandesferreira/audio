@@ -25,8 +25,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=x265
-SRCNAM=x265_
-VERSION=${VERSION:-2.8}
+VERSION=${VERSION:-3.6}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -38,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://ftp.videolan.org/pub/videolan/$PRGNAM/$SRCNAM$VERSION.tar.gz
+wget -c https://bitbucket.org/multicoreware/x265_git/downloads/${PRGNAM}_${VERSION}.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -64,9 +63,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $SRCNAM$VERSION
-tar xvf $CWD/$SRCNAM$VERSION.tar.gz
-cd $SRCNAM$VERSION
+rm -rf ${PRGNAM}_${VERSION}
+tar xvf $CWD/${PRGNAM}_${VERSION}.tar.gz
+cd ${PRGNAM}_${VERSION}
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -90,7 +89,7 @@ cd build-12
     -DENABLE_CLI=OFF \
     -DENABLE_SHARED=OFF \
     -DCMAKE_BUILD_TYPE=Release ../source
-  make -j5
+  make -j17
 
 cd ../build-10
   cmake \
@@ -103,26 +102,26 @@ cd ../build-10
     -DENABLE_CLI=OFF \
     -DENABLE_SHARED=OFF \
     -DCMAKE_BUILD_TYPE=Release ../source
-  make -j5
+  make -j17
 
 cd ../build-8
-ln -s $TMP/$SRCNAM$VERSION/build-10/libx265.a libx265_main10.a
-ln -s $TMP/$SRCNAM$VERSION/build-12/libx265.a libx265_main12.a
+ln -s $TMP/${PRGNAM}_${VERSION}/build-10/libx265.a libx265_main10.a
+ln -s $TMP/${PRGNAM}_${VERSION}/build-12/libx265.a libx265_main12.a
 
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_INSTALL_DIR=lib${LIBDIRSUFFIX} \
-    -DENABLE_SHARED=TRUE \
+    -DENABLE_SHARED=ON \
+    -DENABLE_HDR10_PLUS=TRUE \
     -DEXTRA_LIB="x265_main10.a;x265_main12.a" \
     -DEXTRA_LINK_FLAGS=-L. \
     -DLINKED_10BIT=ON \
     -DLINKED_12BIT=ON \
     -DCMAKE_BUILD_TYPE=Release ../source
-  make -j5
+  make -j17
   make install DESTDIR=$PKG
-
 cd ..
 
 # Don't package the static libraries:

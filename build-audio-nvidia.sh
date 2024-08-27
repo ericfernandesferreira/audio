@@ -30,41 +30,39 @@ TMP=${TMP:-/tmp}
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
 for dir in \
-  ladspa_sdk \
-  speex \
+  soxr \
+  webrtc \
+  libfdk-aac \
+  jack2 \
+  pulseaudio \
   portaudio \
+  jack2 \
+  qjackctl \
   fluidsynth \
   libmp4v2 \
   faac \
   faad2 \
-  lame \
   twolame \
   x264 \
   x265 \
   xvidcore \
-  SDL2 \
-  SDL2_gfx \
-  libwebp \
-  SDL2_image \
-  smpeg2 \
   libmodplug \
-  SDL2_mixer \
-  SDL2_net \
-  SDL2_ttf \
-  OpenAL \
-  opus \
-  libbluray \
-  libass \
+  openal-soft \
   gsm \
   libbs2b \
   libgme \
   nvidia-sdk \
   nv-codec-headers \
   ffmpeg-nvidia \
-  libcue \
+  libde265 \
   libdv \
-  gst-plugins-good0 \
+  liblc3 \
+  lc3plus \
   gst-plugins-good \
+  libcamera \
+  libldac \
+  libfreeaptx \
+  pipewire \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
@@ -92,8 +90,3 @@ for dir in \
   # back to original directory
   cd $AUDIOROOT
 done
-
-# Configurations
-echo default_driver=pulse > /etc/libao.conf
-mkdir -p /etc/openal
-echo "drivers = pulse" > /etc/openal/alsoft.conf

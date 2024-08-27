@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+           |-----handy-ruler------------------------------------------------------|
+libfreeaptx: libfreeaptx is based on version 0.2.0 of libopenaptx with the intent
+libfreeaptx: of continuing under a free license without the additional license
+libfreeaptx: restriction added to 0.2.1. The initial version of libfreeaptx was
+libfreeaptx: reset to 0.1.0 to prevent confusion between the two projects.
+libfreeaptx:
+libfreeaptx: This is Open Source implementation of Audio Processing Technology codec
+libfreeaptx: (aptX) derived from ffmpeg 4.0 project and licensed under LGPLv2.1+.
+libfreeaptx: This codec is mainly used in Bluetooth A2DP profile.
+libfreeaptx:
+libfreeaptx: Homepage : https://github.com/iamthehorker/libfreeaptx
+libfreeaptx:

@@ -36,7 +36,8 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=libmp4v2
-VERSION=${VERSION:-2.1.0}
+SRCNAM=Release-ThirdParty-MP4v2
+VERSION=${VERSION:-5.0.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -47,6 +48,8 @@ if [ -z "$ARCH" ]; then
        *) ARCH=$( uname -m ) ;;
   esac
 fi
+
+wget -c https://github.com/TechSmith/mp4v2/archive/$SRCNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -72,10 +75,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM
-git clone https://github.com/sergiomb2/libmp4v2.git
-cd $PRGNAM
-git checkout
+rm -rf mp4v2-$SRCNAM-$VERSION
+tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
+cd mp4v2-$SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -83,7 +85,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-autoreconf -vif
+patch -p1 < $CWD/libmp4v2-2.0.0-unsigned-int-cast.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -96,7 +98,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --disable-static \
   --build=$ARCH-slackware-linux
 
-make
+make -j17
 make install DESTDIR=$PKG
 
 # Don't package .la files:
@@ -109,7 +111,7 @@ find $PKG/usr/man -type f -exec gzip -9 {} \;
 for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CHANGES* COPYING INSTALL README $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a CHANGES* COPYING INSTALL README* $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

@@ -26,7 +26,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=jack2
-VERSION=${VERSION:-1.9.12}
+VERSION=${VERSION:-1.9.22}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -38,7 +38,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://github.com/jackaudio/jack2/releases/download/v$VERSION/$PRGNAM-$VERSION.tar.gz
+wget -c https://github.com/jackaudio/jack2/archive/v$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -65,10 +65,8 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-# git clone git://github.com/jackaudio/jack2.git
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+tar xvf $CWD/v$VERSION.tar.gz
 cd $PRGNAM-$VERSION
-# git checkout
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -76,8 +74,11 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+sed -i '/^Libs:/s,$, -lpthread,' jack.pc.in
+
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
+LDFLAGS="-Wl,-s" \
 ./waf configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
@@ -97,19 +98,16 @@ find $PKG/usr/man -type f -exec gzip -9 {} \;
 for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a ChangeLog README* TODO $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS* ChangeLog* README* $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
-# Only add capability stuff if not disabled:
-if [ "${SETCAP:-yes}" = "yes" ]; then
-  cat $CWD/setcap.sh >> $PKG/install/doinst.sh
-  # Only allow execution by audio group
-  chown root:audio $PKG/usr/bin/*
-  chmod 0750 $PKG/usr/bin/*
-fi
+# Permissions
+cat $CWD/setcap.sh >> $PKG/install/doinst.sh
+chown root:audio $PKG/usr/bin/*
+chmod 0750 $PKG/usr/bin/*
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

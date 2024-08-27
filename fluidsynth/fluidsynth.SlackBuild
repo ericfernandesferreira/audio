@@ -25,7 +25,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=fluidsynth
-VERSION=${VERSION:-1.1.11}
+VERSION=${VERSION:-2.3.6}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -77,15 +77,14 @@ mkdir -p build
 cd build
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DMAN_INSTALL_DIR=/usr/man/man1 \
-    -DCMAKE_EXE_LINKER_FLAGS="-ltermcap" \
-    -DCMAKE_SHARED_LINKER_FLAGS="-ltermcap" \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_INSTALL_MANDIR=/usr/man \
     -Denable-ladspa=ON \
     -Denable-portaudio=ON \
     -DCMAKE_BUILD_TYPE=Release ..
-  make
+  make -j17
   make install DESTDIR=$PKG
 cd ..
 
@@ -96,7 +95,7 @@ find $PKG/usr/man -type f -exec gzip -9 {} \;
 for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS ChangeLog INSTALL LICENSE NEWS README* THANKS TODO \
+cp -a AUTHORS CONTRIBUTING* ChangeLog LICENSE README* THANKS TODO \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
