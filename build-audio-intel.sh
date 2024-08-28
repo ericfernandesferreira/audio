@@ -27,35 +27,34 @@
 INST=1
 TMP=${TMP:-/tmp}
 
-#  soxr \
-#  webrtc \
-#  libfdk-aac \
-#  jack2 \
-#  pulseaudio \
-#  portaudio \
-#  jack2 \
-#  qjackctl \
-#  fluidsynth \
-#  libmp4v2 \
-#  faac \
-#  faad2 \
-#  twolame \
-#  opencl-clhpp \
-#  x264 \
-#  x265 \
-#  xvidcore \
-#  libmodplug \
-#  openal-soft \
-#  gsm \
-#  libbs2b \
-#  libgme \
-#  libvpl \
-#  intel-gmmlib \
-#  intel-mediasdk \
-
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
 for dir in \
+  soxr \
+  webrtc \
+  libfdk-aac \
+  jack2 \
+  pulseaudio \
+  portaudio \
+  jack2 \
+  qjackctl \
+  fluidsynth \
+  libmp4v2 \
+  faac \
+  faad2 \
+  twolame \
+  opencl-clhpp \
+  x264 \
+  x265 \
+  xvidcore \
+  libmodplug \
+  openal-soft \
+  gsm \
+  libbs2b \
+  libgme \
+  libvpl \
+  intel-gmmlib \
+  intel-mediasdk \
   intel-media-driver \
   intel-onevpl \
   ffmpeg-intel \
