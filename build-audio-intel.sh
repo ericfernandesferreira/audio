@@ -33,17 +33,18 @@ for dir in \
   soxr \
   webrtc \
   libfdk-aac \
-  jack2 \
   pulseaudio \
+  liblc3 \
+  libcamera \
+  libldac \
+  libfreeaptx \
+  pipewire \
   portaudio \
-  jack2 \
-  qjackctl \
   fluidsynth \
   libmp4v2 \
   faac \
   faad2 \
   twolame \
-  opencl-clhpp \
   x264 \
   x265 \
   xvidcore \
@@ -54,19 +55,13 @@ for dir in \
   libgme \
   libvpl \
   intel-gmmlib \
-  intel-mediasdk \
   intel-media-driver \
   intel-onevpl \
   ffmpeg-intel \
   libde265 \
   libdv \
-  liblc3 \
-  lc3plus \
   gst-plugins-good \
-  libcamera \
-  libldac \
-  libfreeaptx \
-  pipewire \
+  pipewire-ffmpeg \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
@@ -94,3 +89,5 @@ for dir in \
   # back to original directory
   cd $AUDIOROOT
 done
+
+slackpkg update new-config
