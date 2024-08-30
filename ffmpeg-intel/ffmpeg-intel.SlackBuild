@@ -85,6 +85,7 @@ find -L . \
 # --enable-libopencore_amrwb \
 # --enable-ladspa \
 # --enable-libglslang \
+# --enable-libjack \
 
 # --enable-cuda-nvcc \ 'Only if you are using cuda'
 # --enable-npp \ 'Only if you are using cuda'
@@ -163,7 +164,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libsmbclient \
   --enable-opencl \
   --enable-libaom \
-  --enable-libjack \
   --enable-libfdk-aac \
   --enable-libvpl \
   --enable-vulkan \
