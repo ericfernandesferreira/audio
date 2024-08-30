@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 # Slackware build script for libldac
 
-# Copyright 2015-2021 Eric Fernandes Ferreira <candelabrus@gmail.com>
+# Copyright 2015-2024 Eric Fernandes Ferreira <candelabrus@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -63,10 +63,8 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM
-# tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
-git clone --recursive https://github.com/EHfive/ldacBT.git
+tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
 cd $SRCNAM
-git checkout
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
