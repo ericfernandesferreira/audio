@@ -87,7 +87,7 @@ cd build
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_MANDIR=/usr/man \
-    -DCONFIG_QT6=no \
+    -DCONFIG_QT6=yes \
     -DCONFIG_JACK_VERSION=jack2 \
     -DCMAKE_BUILD_TYPE=Release ..
   make -j17 VERBOSE=1
