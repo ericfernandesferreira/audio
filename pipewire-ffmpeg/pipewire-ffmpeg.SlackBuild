@@ -87,10 +87,10 @@ cd build
     -Dtest=disabled \
     -Dvulkan=enabled \
     -Dtests=disabled \
-    -Dffmpeg=disabled \
+    -Dffmpeg=enabled \
     -Dsystemd=disabled \
     -Dexamples=disabled \
-    -Dpw-cat-ffmpeg=disabled \
+    -Dpw-cat-ffmpeg=enabled \
     -Dinstalled_tests=disabled \
     -Dbluez5-codec-aac=enabled \
     -Dbluez5-codec-lc3=enabled \
@@ -137,7 +137,7 @@ install -Dm644 $CWD/50-custom.conf $PKG/etc/security/limits.d/50-custom.conf
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a CODE* COPYING INSTALL* LICENSE NEWS README* $PKG/usr/doc/$PRGNAM-$VERSION
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+cat $CWD/$PRGNAM-ffmpeg.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
