@@ -3,10 +3,11 @@ exec_prefix=@CMAKE_INSTALL_PREFIX@
 libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
 includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
 
-Name: lc3plus
+Name: @PROJECT_NAME@
 Description: @PROJECT_DESCRIPTION@
 Version: @PROJECT_VERSION@
 
 Requires:
-Libs: -L${libdir} -llibLC3plus
+Libs: -L${libdir}/LC3plus -lLC3plus
 Cflags: -I${includedir} -DENABLE_HR_MODE
+

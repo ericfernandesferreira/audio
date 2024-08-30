@@ -6,14 +6,14 @@
 # leave one space after the ':'.
 
        |-----handy-ruler------------------------------------------------------|
+lc3plus: LC3plus is LC3's sibling, equipped with numerous additional
+lc3plus: functionalities. While comprising all features of LC3, including high
+lc3plus: speech and audio quality, C3plus incorporates functionalities for
+lc3plus: transmission robustness, extremely low-delay use cases and high-resolution
+lc3plus: audio transmission.
 lc3plus:
 lc3plus:
 lc3plus:
 lc3plus:
-lc3plus:
-lc3plus:
-lc3plus:
-lc3plus:
-lc3plus:
-lc3plus: Homepage : https://github.com/marzzzello/LC3plus
+lc3plus: Homepage : https://www.iis.fraunhofer.de/en/ff/amm/communication/lc3.html
 lc3plus:
