@@ -81,7 +81,6 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=lib${LIBDIRSUFFIX} \
     -DALSOFT_EXAMPLES=OFF \
-    -DALSOFT_BACKEND_SDL2=ON \
     -DCMAKE_BUILD_TYPE=Release ..
   make -j17
   make install DESTDIR=$PKG
