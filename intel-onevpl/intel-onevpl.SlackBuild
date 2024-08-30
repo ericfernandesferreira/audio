@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Slackware build script for intel-onevpl
 
@@ -78,12 +78,7 @@ cd build
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_INSTALL_FULL_BINDIR=/usr/bin \
-    -DCMAKE_INSTALL_FULL_INCLUDEDIR=/usr/include \
-    -DCMAKE_INSTALL_FULL_LIBDIR=/usr/lib${LIBDIRSUFFIX} \
-    -DCMAKE_INSTALL_FULL_DATADIR=/usr \
     -DBUILD_TOOLS=ON \
-    -DUSE_SYSTEM_GTEST=ON \
     -DCMAKE_BUILD_TYPE=Release ..
   make -j17
   make install DESTDIR=$PKG
