@@ -3,6 +3,8 @@ Versão Pipewire : 1.2.3
 Versão FFMPEG : 7.0.2
 NvidiaSDK : 12.2.72
 IntelSDK : 23.2.2
+IntelOneVPL : 24.3.1
+IntelVPL : 2.12.2
 
 Requerimentos:
 - intel ou nvidia
@@ -13,6 +15,13 @@ Esse pacote de áudio é "obrigatório" ser instalado antes de ser compilado os 
 O jack audio faz parte do pacote junto ao pipewire, você pode utilizá-lo de duas formas, uma utilizando como era antes que é habilitando o jackd ou jack d-bus como servidor no caso o qjackctl fazendo esse manuseio para vocÊ e a outra opção agora disponibilizado pelo pipewire que consiste em utilizar o comando pw-jack antes executar o programa necessário.
 
 Como esse pacote vem com o ffmpeg e isso envolve encoders e decoders então eu resolvi dividir entre gpu's para não existir confusão. Infelizmente não tenho uma placa de vídeo da AMD, então se você possuí uma você terá que editar manualmente.
+
+Pacotes que não são instalados automaticamente:
+- intel-mediasdk (obsoleto)
+- jack2 (jack2 desativado temporariamente)
+- lc3plus (utilizando o lc3)
+- opencl-clhpp (dependência do intel-mediasdk)
+- qjackctl (jack2 desativado temporariamente)
 
 Como instalar:
 - você precisa clonar com o comando : git clone https://gitlab.com/grinder/audio.git
@@ -45,6 +54,8 @@ Pipewire Version : 1.2.3
 FFMPEG Version: 7.0.2
 NvidiaSDK : 12.2.72
 IntelSDK : 23.2.2
+IntelOneVPL : 24.3.1
+IntelVPL : 2.12.2
 
 Requirements:
 - intel or nvidia
