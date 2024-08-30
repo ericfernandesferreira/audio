@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Slackware build script for intel-gmmlib
 
@@ -78,10 +78,7 @@ cd build
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_INSTALL_FULL_BINDIR=/usr/bin \
-    -DCMAKE_INSTALL_FULL_INCLUDEDIR=/usr/include \
-    -DCMAKE_INSTALL_FULL_LIBDIR=/usr/lib${LIBDIRSUFFIX} \
-    -DCMAKE_INSTALL_FULL_DATADIR=/usr \
+    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DRUN_TEST_SUITE=OFF \
     -DCMAKE_BUILD_TYPE=Release ..
   make -j17
