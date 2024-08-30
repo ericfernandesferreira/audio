@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 # Slackware build script for webrtc
 
-# Copyright 2015-2021 Eric Fernandes Ferreira <candelabrus@gmail.com>
+# Copyright 2015-2024 Eric Fernandes Ferreira <candelabrus@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,7 +24,7 @@
 
 PRGNAM=webrtc
 SRCNAM=webrtc-audio-processing
-VERSION=${VERSION:-0.3.1}
+VERSION=${VERSION:-1.3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -64,9 +64,7 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION
 tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
-# git clone https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing.git
 cd $SRCNAM-$VERSION
-# git checkout
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -74,27 +72,26 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-./configure \
-  --prefix=/usr \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --sysconfdir=/etc \
-  --localstatedir=/var \
-  --disable-static \
-  --build=$ARCH-slackware-linux
+mkdir -p build
+cd build
+  meson setup \
+    --prefix=/usr \
+    --libdir=lib${LIBDIRSUFFIX} \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --buildtype=release \
+    ..
 
-make -j9
-make install DESTDIR=$PKG
-
-# Don't package .la files:
-rm -f $PKG/usr/lib${LIBDIRSUFFIX}/*.la
+  meson configure
+  ninja
+  DESTDIR=$PKG ninja install
+cd ..
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README* UPDATING* \
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README* RELEASING* UPDATING* \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
