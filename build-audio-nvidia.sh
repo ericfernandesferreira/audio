@@ -30,14 +30,17 @@ TMP=${TMP:-/tmp}
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
 for dir in \
+  ladspa \
   soxr \
   webrtc \
   libfdk-aac \
-  jack2 \
   pulseaudio \
+  liblc3 \
+  libcamera \
+  libldac \
+  libfreeaptx \
+  pipewire \
   portaudio \
-  jack2 \
-  qjackctl \
   fluidsynth \
   libmp4v2 \
   faac \
@@ -56,12 +59,7 @@ for dir in \
   ffmpeg-nvidia \
   libde265 \
   libdv \
-  liblc3 \
-  lc3plus \
   gst-plugins-good \
-  libcamera \
-  libldac \
-  libfreeaptx \
   pipewire \
   ; do
   # Get the package name
