@@ -30,6 +30,7 @@ TMP=${TMP:-/tmp}
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
 for dir in \
+  ladspa \
   soxr \
   webrtc \
   libfdk-aac \
@@ -61,7 +62,7 @@ for dir in \
   libde265 \
   libdv \
   gst-plugins-good \
-  pipewire-ffmpeg \
+  pipewire \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
@@ -89,5 +90,3 @@ for dir in \
   # back to original directory
   cd $AUDIOROOT
 done
-
-slackpkg update new-config
