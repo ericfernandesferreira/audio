@@ -83,12 +83,8 @@ find -L . \
 # --enable-librtmp \
 # --enable-libopencore_amrnb \
 # --enable-libopencore_amrwb \
-# --enable-ladspa \
 # --enable-libglslang \
 # --enable-libjack \
-
-# --enable-cuda-nvcc \ 'Only if you are using cuda'
-# --enable-npp \ 'Only if you are using cuda'
 
 # --enable-libmfx \ old decoder for intel users
 
@@ -167,9 +163,10 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libfdk-aac \
   --enable-libvpl \
   --enable-vulkan \
+  --enable-ladspa \
   --arch=$ARCH
 
-make -j9
+make -j17
 make install DESTDIR=$PKG
 make install-man DESTDIR=$PKG
 

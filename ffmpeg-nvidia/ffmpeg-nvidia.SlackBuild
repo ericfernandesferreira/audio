@@ -83,8 +83,8 @@ find -L . \
 # --enable-librtmp \
 # --enable-libopencore_amrnb \
 # --enable-libopencore_amrwb \
-# --enable-ladspa \
 # --enable-libglslang \
+# --enable-libjack \
 
 # --enable-cuda-nvcc \ 'Only if you are using cuda'
 # --enable-npp \ 'Only if you are using cuda'
@@ -150,21 +150,22 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libwebp \
   --enable-gmp \
   --enable-libdrm \
-  --enable-vaapi \
   --enable-vdpau \
+  --enable-vaapi \
+  --enable-libxml2 \
   --enable-cuda \
   --enable-cuvid \
   --enable-nvenc \
   --enable-nvdec \
   --enable-ffnvcodec \
   --enable-libsoxr \
-  --enable-libxml2 \
   --enable-librsvg \
   --enable-libsmbclient \
+  --enable-opencl \
   --enable-libaom \
-  --enable-libjack \
   --enable-libfdk-aac \
   --enable-vulkan \
+  --enable-ladspa \
   --arch=$ARCH
 
 make -j17
