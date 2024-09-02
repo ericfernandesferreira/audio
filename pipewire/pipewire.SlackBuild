@@ -84,13 +84,13 @@ cd build
     --sysconfdir=/etc \
     --localstatedir=/var \
     --buildtype=release \
+    -Dffmpeg=auto \
     -Dtest=disabled \
     -Dvulkan=enabled \
     -Dtests=disabled \
-    -Dffmpeg=disabled \
     -Dsystemd=disabled \
     -Dexamples=disabled \
-    -Dpw-cat-ffmpeg=disabled \
+    -Dpw-cat-ffmpeg=auto \
     -Dinstalled_tests=disabled \
     -Dbluez5-codec-aac=enabled \
     -Dbluez5-codec-lc3=enabled \
@@ -120,7 +120,7 @@ if ! grep -q "^Hidden=true$" /etc/xdg/autostart/pulseaudio.desktop ; then
 fi
 
 # Increasing RLIMIT_MEMLOCK for JACK clients
-install -Dm644 $CWD/50-custom.conf $PKG/etc/security/limits.d/50-custom.conf
+# install -Dm644 $CWD/50-custom.conf $PKG/etc/security/limits.d/50-custom.conf
 
 # Let pipewire control jack audio when necessary
 # install -Dm644 $CWD/pipewire-jack-x86_64.conf -t $PKG/etc/ld.so.conf.d
