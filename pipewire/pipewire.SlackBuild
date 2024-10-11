@@ -24,7 +24,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=pipewire
-VERSION=${VERSION:-1.2.3}
+VERSION=${VERSION:-1.2.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -84,13 +84,13 @@ cd build
     --sysconfdir=/etc \
     --localstatedir=/var \
     --buildtype=release \
-    -Dffmpeg=auto \
+    -Dffmpeg=disabled \
     -Dtest=disabled \
     -Dvulkan=enabled \
     -Dtests=disabled \
     -Dsystemd=disabled \
     -Dexamples=disabled \
-    -Dpw-cat-ffmpeg=auto \
+    -Dpw-cat-ffmpeg=disabled \
     -Dinstalled_tests=disabled \
     -Dbluez5-codec-aac=enabled \
     -Dbluez5-codec-lc3=enabled \
@@ -112,7 +112,6 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 install -Dm644 $CWD/$PRGNAM.desktop $PKG/etc/xdg/autostart/$PRGNAM.desktop
 install -Dm644 $CWD/wireplumber.desktop $PKG/etc/xdg/autostart/wireplumber.desktop
 install -Dm644 $CWD/$PRGNAM-pulse.desktop $PKG/etc/xdg/autostart/$PRGNAM-pulse.desktop
-# install -Dm644 $CWD/$PRGNAM-media-session.desktop $PKG/etc/xdg/autostart/$PRGNAM-media-session.desktop
 
 # Disable pulseaudio.desktop:
 if ! grep -q "^Hidden=true$" /etc/xdg/autostart/pulseaudio.desktop ; then
@@ -124,16 +123,6 @@ fi
 
 # Let pipewire control jack audio when necessary
 # install -Dm644 $CWD/pipewire-jack-x86_64.conf -t $PKG/etc/ld.so.conf.d
-
-# Enable bluez5 session modules into media-session
-#sed -i 's/#bluez5/bluez5/g' $PKG/usr/share/pipewire/media-session.d/media-session.conf
-
-# Enable mSBC for bluetooth audio using media-session
-#sed -i 's/#bluez5.msbc-support = false/bluez5.msbc-support = true/g' $PKG/usr/share/pipewire/media-session.d/bluez-monitor.conf
-#sed -i 's/#bluez5.msbc-support   = false/bluez5.msbc-support   = true/g' $PKG/usr/share/pipewire/media-session.d/bluez-monitor.conf
-
-# Enable SCB-XQ (audio quality) for bluetooth audio using media-session
-#sed -i 's/#bluez5.sbc-xq-support = false/bluez5.sbc-xq-support = true/g' $PKG/usr/share/pipewire/media-session.d/bluez-monitor.conf
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a CODE* COPYING INSTALL* LICENSE NEWS README* $PKG/usr/doc/$PRGNAM-$VERSION
