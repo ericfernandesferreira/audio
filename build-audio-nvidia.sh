@@ -60,7 +60,6 @@ for dir in \
   libde265 \
   libdv \
   gst-plugins-good \
-  pipewire \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
