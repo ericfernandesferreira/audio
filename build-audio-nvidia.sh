@@ -56,6 +56,9 @@ for dir in \
   libgme \
   nvidia-sdk \
   nv-codec-headers \
+  libgav1 \
+  libjxl \
+  svt-av1 \
   ffmpeg-nvidia \
   libde265 \
   libdv \
