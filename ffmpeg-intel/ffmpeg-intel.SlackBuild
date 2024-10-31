@@ -159,11 +159,14 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-librsvg \
   --enable-libsmbclient \
   --enable-opencl \
-  --enable-libaom \
   --enable-libfdk-aac \
   --enable-libvpl \
   --enable-vulkan \
   --enable-ladspa \
+  --enable-libjxl \
+  --enable-libaom \
+  --enable-libdav1d \
+  --enable-libsvtav1 \
   --arch=$ARCH
 
 make -j17
