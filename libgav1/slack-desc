@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+       |-----handy-ruler------------------------------------------------------|
+libgav1: libgav1 -- an AV1 decoder
+libgav1:
+libgav1: libgav1 is a Main profile (0), High profile (1) & Professional profile
+libgav1: (2) compliant AV1 decoder. More information on the AV1 video format can
+libgav1: be found at aomedia.org.
+libgav1:
+libgav1:
+libgav1:
+libgav1:
+libgav1: Homepage : https://chromium.googlesource.com/codecs/libgav1/
+libgav1:
