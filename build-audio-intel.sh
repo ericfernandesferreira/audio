@@ -58,6 +58,9 @@ for dir in \
   intel-gmmlib \
   intel-media-driver \
   intel-onevpl \
+  libgav1 \
+  libjxl \
+  svt-av1 \
   ffmpeg-intel \
   libde265 \
   libdv \
