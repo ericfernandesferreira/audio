@@ -24,7 +24,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=pipewire
-VERSION=${VERSION:-1.2.6}
+VERSION=${VERSION:-1.2.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -84,13 +84,13 @@ cd build
     --sysconfdir=/etc \
     --localstatedir=/var \
     --buildtype=release \
-    -Dffmpeg=disabled \
     -Dtest=disabled \
     -Dvulkan=enabled \
     -Dtests=disabled \
+    -Dffmpeg=enabled \
     -Dsystemd=disabled \
     -Dexamples=disabled \
-    -Dpw-cat-ffmpeg=disabled \
+    -Dpw-cat-ffmpeg=enabled \
     -Dinstalled_tests=disabled \
     -Dbluez5-codec-aac=enabled \
     -Dbluez5-codec-lc3=enabled \
