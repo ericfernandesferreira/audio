@@ -35,11 +35,6 @@ for dir in \
   webrtc \
   libfdk-aac \
   pulseaudio \
-  liblc3 \
-  libcamera \
-  libldac \
-  libfreeaptx \
-  pipewire \
   portaudio \
   fluidsynth \
   libmp4v2 \
@@ -58,14 +53,17 @@ for dir in \
   intel-gmmlib \
   intel-media-driver \
   intel-onevpl \
-  libgav1 \
   libjxl \
   svt-av1 \
   ffmpeg-intel \
   libde265 \
   libdv \
-  gst-plugins-good \
+  liblc3 \
+  libcamera \
+  libldac \
+  libfreeaptx \
   pipewire \
+  gst-plugins-good \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
