@@ -3,8 +3,8 @@ Versão Pipewire : 1.2.7
 Versão FFMPEG : 7.0.2
 NvidiaSDK : 12.2.72
 IntelSDK : 23.2.2
-IntelOneVPL : 24.3.1
-IntelVPL : 2.13.0
+IntelOneVPL : 24.4.4
+IntelVPL : 2.14.0
 
 Requerimentos:
 - intel ou nvidia
@@ -54,8 +54,8 @@ Pipewire Version : 1.2.7
 FFMPEG Version: 7.0.2
 NvidiaSDK : 12.2.72
 IntelSDK : 23.2.2
-IntelOneVPL : 24.3.1
-IntelVPL : 2.13.0
+IntelOneVPL : 24.4.4
+IntelVPL : 2.14.0
 
 Requirements:
 - intel or nvidia
