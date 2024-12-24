@@ -24,7 +24,7 @@ Pacotes que não são instalados automaticamente:
 - qjackctl (jack2 desativado temporariamente)
 
 Como instalar:
-- você precisa clonar com o comando : git clone https://gitlab.com/grinder/audio.git
+- você precisa clonar com o comando : git clone https://github.com/ericfernandesferreira/audio.git
 E então dentro da pasta criada execute o script de instalação
 sh build-audio-nvidia.sh (para placas da nvidia)
 sh build-audio-intel.sh (para placas integradas intel)
@@ -68,7 +68,7 @@ Jack Audio is part of the package next to pipewire, you can use it in two ways, 
 As this package comes with ffmpeg and it involves encoders and decoders so i decided to divide it between gpu's so there is no confusion. Unfortunately i don't have an AMD graphics card, so if you have one you will have to edit it manually.
 
 How to install:
-- you need to clone with command : git clone https://gitlab.com/grinder/audio.git
+- you need to clone with command : git clone https://github.com/ericfernandesferreira/audio.git
 And then inside the created folder run the installation script
 sh build-audio-nvidia.sh (for nvidia users)
 sh build-audio-intel.sh (for intel users)
