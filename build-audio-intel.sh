@@ -55,10 +55,12 @@ for dir in \
   intel-onevpl \
   libjxl \
   svt-av1 \
+  libmysofa \
   ffmpeg-intel \
   libde265 \
   libdv \
   liblc3 \
+  libyuv \
   libcamera \
   libldac \
   libfreeaptx \
