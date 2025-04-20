@@ -27,7 +27,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=qjackctl
-VERSION=${VERSION:-1.0.3}
+VERSION=${VERSION:-1.0.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
