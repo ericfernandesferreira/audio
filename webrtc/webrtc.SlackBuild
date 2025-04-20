@@ -2,7 +2,7 @@
 
 # Slackware build script for webrtc
 
-# Copyright 2015-2024 Eric Fernandes Ferreira <candelabrus@gmail.com>
+# Copyright 2015-2025 Eric Fernandes Ferreira <candelabrus@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,7 +24,7 @@
 
 PRGNAM=webrtc
 SRCNAM=webrtc-audio-processing
-VERSION=${VERSION:-1.3}
+VERSION=${VERSION:-2.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
