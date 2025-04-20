@@ -2,7 +2,7 @@
 
 # Slackware build script for svt-av1
 
-# Copyright 2015-2024 Eric Fernandes Ferreira <candelabrus@gmail.com>
+# Copyright 2015-2025 Eric Fernandes Ferreira <candelabrus@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,7 +24,7 @@
 
 PRGNAM=svt-av1
 SRCNAM=SVT-AV1
-VERSION=${VERSION:-2.3.0}
+VERSION=${VERSION:-3.0.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
