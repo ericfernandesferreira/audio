@@ -1,0 +1,14 @@
+diff -ruN libyuv/CMakeLists.txt libyuv-patched/CMakeLists.txt
+--- libyuv/CMakeLists.txt	2024-10-22 16:57:29.559641293 -0300
++++ libyuv-patched/CMakeLists.txt	2024-10-22 16:59:06.782648334 -0300
+@@ -212,8 +212,8 @@
+ 
+ # install the conversion tool, .so, .a, and all the header files
+ install ( TARGETS yuvconvert DESTINATION bin )
+-install ( TARGETS ${ly_lib_static}						DESTINATION lib )
+-install ( TARGETS ${ly_lib_shared} LIBRARY DESTINATION lib RUNTIME DESTINATION bin ARCHIVE DESTINATION lib )
++# install ( TARGETS ${ly_lib_static}						DESTINATION lib )
++install ( TARGETS ${ly_lib_shared} LIBRARY DESTINATION lib64 RUNTIME DESTINATION bin ARCHIVE DESTINATION lib64 )
+ install ( DIRECTORY ${PROJECT_SOURCE_DIR}/include/		DESTINATION include )
+ 
+ # create the .deb and .rpm packages using cpack
