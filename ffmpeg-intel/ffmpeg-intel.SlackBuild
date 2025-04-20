@@ -28,7 +28,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-7.0.2}
+VERSION=${VERSION:-7.1.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -85,6 +85,7 @@ find -L . \
 # --enable-libopencore_amrwb \
 # --enable-libglslang \
 # --enable-libjack \
+# --enable-libsvtav1 \
 
 # --enable-libmfx \ old decoder for intel users
 
@@ -166,7 +167,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libjxl \
   --enable-libaom \
   --enable-libdav1d \
-  --enable-libsvtav1 \
+  --enable-libmysofa \
   --arch=$ARCH
 
 make -j17

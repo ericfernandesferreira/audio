@@ -28,7 +28,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=ffmpeg
-VERSION=${VERSION:-7.0.2}
+VERSION=${VERSION:-7.1.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -85,12 +85,13 @@ find -L . \
 # --enable-libopencore_amrwb \
 # --enable-libglslang \
 # --enable-libjack \
+# --enable-libsvtav1 \
 
 # --enable-cuda-nvcc \ 'Only if you are using cuda'
 # --enable-npp \ 'Only if you are using cuda'
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
+CFLAGS="$SLKCFLAGS -Wincompatible-pointer-types" \
+CXXFLAGS="$SLKCFLAGS -Wincompatible-pointer-types" \
 ./configure \
   --prefix=/usr \
   --extra-cflags=-I/usr/include/cuda \
@@ -168,7 +169,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libjxl \
   --enable-libaom \
   --enable-libdav1d \
-  --enable-libsvtav1 \
+  --enable-libmysofa \
   --arch=$ARCH
 
 make -j17
