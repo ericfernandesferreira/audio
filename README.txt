@@ -1,10 +1,9 @@
 Versão Jack2 : 1.9.22
-Versão Pipewire : 1.2.7
-Versão FFMPEG : 7.0.2
-NvidiaSDK : 12.2.72
+Versão Pipewire : 1.4.2
+Versão FFMPEG : 7.1.1
+NvidiaSDK : 13.0.19
 IntelSDK : 23.2.2
-IntelOneVPL : 24.4.4
-IntelVPL : 2.14.0
+IntelMediaDriver : 25.2.0
 
 Requerimentos:
 - intel ou nvidia
@@ -50,12 +49,11 @@ upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
 ---------------------------------------------------------------
 
 Jack2 Version : 1.9.22
-Pipewire Version : 1.2.7
-FFMPEG Version: 7.0.2
-NvidiaSDK : 12.2.72
+Pipewire Version : 1.4.2
+FFMPEG Version: 7.1.1
+NvidiaSDK : 13.0.19
 IntelSDK : 23.2.2
-IntelOneVPL : 24.4.4
-IntelVPL : 2.14.0
+IntelMediaDriver : 25.2.0
 
 Requirements:
 - intel or nvidia
