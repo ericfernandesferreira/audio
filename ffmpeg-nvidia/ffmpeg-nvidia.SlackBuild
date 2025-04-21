@@ -90,8 +90,8 @@ find -L . \
 # --enable-cuda-nvcc \ 'Only if you are using cuda'
 # --enable-npp \ 'Only if you are using cuda'
 
-CFLAGS="$SLKCFLAGS -Wincompatible-pointer-types" \
-CXXFLAGS="$SLKCFLAGS -Wincompatible-pointer-types" \
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --extra-cflags=-I/usr/include/cuda \
