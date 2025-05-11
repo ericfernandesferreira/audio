@@ -87,6 +87,7 @@ find -L . \
 # --enable-libjack \
 # --enable-libsvtav1 \
 
+# --enable-libv4l2 \ removed because conflit with vmware machine
 # --enable-libmfx \ old decoder for intel users
 
 CFLAGS="$SLKCFLAGS" \
@@ -147,7 +148,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-libxcb-xfixes \
   --enable-libbs2b \
   --enable-libspeex \
-  --enable-libv4l2 \
   --enable-libopenjpeg \
   --enable-libgme \
   --enable-libwebp \
