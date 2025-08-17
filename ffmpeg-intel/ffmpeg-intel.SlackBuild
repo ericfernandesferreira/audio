@@ -90,8 +90,8 @@ find -L . \
 # --enable-libv4l2 \ removed because conflit with vmware machine
 # --enable-libmfx \ old decoder for intel users
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
+CFLAGS="$SLKCFLAGS -Wno-error=int-conversion -Wno-error=incompatible-pointer-types" \
+CXXFLAGS="$SLKCFLAGS -Wno-error=int-conversion -Wno-error=incompatible-pointer-types" \
 ./configure \
   --prefix=/usr \
   --extra-cflags=-I/usr/include/mfx \

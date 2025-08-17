@@ -90,8 +90,8 @@ find -L . \
 # --enable-cuda-nvcc \ 'Only if you are using cuda'
 # --enable-npp \ 'Only if you are using cuda'
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
+CFLAGS="$SLKCFLAGS -Wno-error=int-conversion -Wno-error=incompatible-pointer-types" \
+CXXFLAGS="$SLKCFLAGS -Wno-error=int-conversion -Wno-error=incompatible-pointer-types" \
 ./configure \
   --prefix=/usr \
   --extra-cflags=-I/usr/include/cuda \
