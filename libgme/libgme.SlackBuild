@@ -26,7 +26,7 @@
 
 PRGNAM=libgme
 SRCNAM=game-music-emu
-VERSION=${VERSION:-0.6.3}
+VERSION=${VERSION:-0.6.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -38,7 +38,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://bitbucket.org/mpyne/game-music-emu/downloads/$SRCNAM-$VERSION.tar.xz
+wget -c https://github.com/libgme/game-music-emu/archive/refs/tags/$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -65,7 +65,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION
-tar xvf $CWD/$SRCNAM-$VERSION.tar.xz
+tar xvf $CWD/$VERSION.tar.gz
 cd $SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
@@ -82,6 +82,7 @@ cd build
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
+    -DGME_BUILD_STATIC=OFF \
     -DCMAKE_BUILD_TYPE=Release ..
   make -j17
   make install DESTDIR=$PKG
