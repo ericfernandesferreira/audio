@@ -74,6 +74,7 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 patch -p1 < $CWD/cmake4.patch
+patch -p1 < $CWD/0001-Fix-build-with-GCC-15.patch
 
 mv build build-12
 cp -r build-12 build-10
