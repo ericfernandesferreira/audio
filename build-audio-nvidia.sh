@@ -27,34 +27,32 @@
 INST=1
 TMP=${TMP:-/tmp}
 
-#  ladspa \
-#  soxr \
-#  webrtc \
-#  libfdk-aac \
-#  pulseaudio \
-#  portaudio \
-#  fluidsynth \
-#  libmp4v2 \
-#  faac \
-#  faad2 \
-#  twolame \
-#  x264 \
-#  x265 \
-#  xvidcore \
-#  libmodplug \
-#  openal-soft \
-#  gsm \
-#  libbs2b \
-#  libgme \
-#  nvidia-sdk \
-#  nv-codec-headers \
-#  libjxl \
-#  svt-av1 \
-#  libmysofa \
-
 # This is the original directory where you started this script
 AUDIOROOT=$(pwd)
 for dir in \
+  ladspa \
+  soxr \
+  webrtc \
+  libfdk-aac \
+  pulseaudio \
+  portaudio \
+  fluidsynth \
+  libmp4v2 \
+  faac \
+  faad2 \
+  twolame \
+  x264 \
+  x265 \
+  libmodplug \
+  openal-soft \
+  gsm \
+  libbs2b \
+  libgme \
+  nvidia-sdk \
+  nv-codec-headers \
+  libjxl \
+  svt-av1 \
+  libmysofa \
   ffmpeg-nvidia \
   libde265 \
   libdv \

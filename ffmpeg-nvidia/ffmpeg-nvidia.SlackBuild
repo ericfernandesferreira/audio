@@ -118,7 +118,6 @@ CXXFLAGS="$SLKCFLAGS -Wno-error=int-conversion -Wno-error=incompatible-pointer-t
   --enable-libmp3lame \
   --enable-libx264 \
   --enable-libx265 \
-  --enable-libxvid \
   --enable-openal \
   --enable-nonfree \
   --enable-libpulse \

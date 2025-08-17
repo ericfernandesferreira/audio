@@ -43,7 +43,6 @@ for dir in \
   twolame \
   x264 \
   x265 \
-  xvidcore \
   libmodplug \
   openal-soft \
   gsm \
