@@ -111,7 +111,7 @@ cd build
     -Dadrian-aec=true \
     -Dhal-compat=false \
     -Dgsettings=enabled \
-    -Dwebrtc-aec=enabled \
+    -Dwebrtc-aec=disabled \
     -Dsystem_user="pulse" \
     -Dsystem_group="pulse" \
     -Daccess_group="audio" \
