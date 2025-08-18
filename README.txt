@@ -11,7 +11,7 @@ Requerimentos:
 
 Esse pacote de áudio é "obrigatório" ser instalado antes de ser compilado os Ambientes Gráficos e também são dependências dos programas Audacious, VLC, Deadbeef, Mplayer, Qtractor entre vários outros.
 
-O jack audio faz parte do pacote junto ao pipewire, você pode utilizá-lo de duas formas, uma utilizando como era antes que é habilitando o jackd ou jack d-bus como servidor no caso o qjackctl fazendo esse manuseio para vocÊ e a outra opção agora disponibilizado pelo pipewire que consiste em utilizar o comando pw-jack antes executar o programa necessário.
+O jack audio faz parte do pacote junto ao pipewire, você pode utilizá-lo de duas formas, uma utilizando como era antes que é habilitando o jackd ou jack d-bus como servidor no caso o qjackctl fazendo esse manuseio para você e a outra opção agora disponibilizado pelo pipewire que consiste em utilizar o comando pw-jack antes executar o programa necessário.
 
 Como esse pacote vem com o ffmpeg e isso envolve encoders e decoders então eu resolvi dividir entre gpu's para não existir confusão. Infelizmente não tenho uma placa de vídeo da AMD, então se você possuí uma você terá que editar manualmente.
 
