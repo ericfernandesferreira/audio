@@ -46,9 +46,9 @@
 -		$(RANLIB) $(LIBGSM)
 -
 +$(LIBGSMSO): $(LIB) $(GSM_OBJECTS)
-+	$(LD) $(LFLAGS) -shared -Wl,-soname,libgsm.so.1 -o $@.1.0.22 $(GSM_OBJECTS)
-+	$(LN) libgsm.so.1.0.22 $(LIBGSMSO).1
-+	$(LN) libgsm.so.1.0.22 $(LIBGSMSO)
++	$(LD) $(LFLAGS) -shared -Wl,-soname,libgsm.so.1 -o $@.1.0.23 $(GSM_OBJECTS)
++	$(LN) libgsm.so.1.0.23 $(LIBGSMSO).1
++	$(LN) libgsm.so.1.0.23 $(LIBGSMSO)
  
  # Toast, Untoast and Tcat -- the compress-like frontends to gsm.
  
@@ -78,11 +78,11 @@
 -		cp $? $@
 -		chmod 444 $@
 +$(GSM_INSTALL_LIB)/libgsm.so:	$(LIBGSMSO)
-+		-rm $(RMFLAGS) $@ $@.1 $@.1.0.22
-+		cp $?.1.0.22 $@.1.0.22
-+		chmod 755 $@.1.0.22
-+		$(LN) libgsm.so.1.0.22 $@
-+		$(LN) libgsm.so.1.0.22 $@.1
++		-rm $(RMFLAGS) $@ $@.1 $@.1.0.23
++		cp $?.1.0.23 $@.1.0.23
++		chmod 755 $@.1.0.23
++		$(LN) libgsm.so.1.0.23 $@
++		$(LN) libgsm.so.1.0.23 $@.1
  
  # Distribution
  
