@@ -53,6 +53,7 @@ for dir in \
   libjxl \
   svt-av1 \
   libmysofa \
+  libvpl \
   ffmpeg-nvidia \
   libde265 \
   libdv \
