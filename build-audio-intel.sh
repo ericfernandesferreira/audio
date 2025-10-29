@@ -55,6 +55,7 @@ for dir in \
   libjxl \
   svt-av1 \
   libmysofa \
+  nv-codec-headers \
   ffmpeg-intel \
   libde265 \
   libdv \
