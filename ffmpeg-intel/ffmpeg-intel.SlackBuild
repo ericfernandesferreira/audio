@@ -85,7 +85,6 @@ find -L . \
 # --enable-libopencore_amrwb \
 # --enable-libglslang \
 # --enable-libjack \
-# --enable-libsvtav1 \
 
 # --enable-libv4l2 \ removed because conflit with vmware machine
 # --enable-libmfx \ old decoder for intel users
@@ -167,6 +166,7 @@ CXXFLAGS="$SLKCFLAGS -Wno-error=int-conversion -Wno-error=incompatible-pointer-t
   --enable-libaom \
   --enable-libdav1d \
   --enable-libmysofa \
+  --enable-libsvtav1 \
   --arch=$ARCH
 
 make -j17
