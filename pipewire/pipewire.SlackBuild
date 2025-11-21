@@ -24,7 +24,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=pipewire
-VERSION=${VERSION:-1.5.81}
+VERSION=${VERSION:-1.5.83}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
