@@ -24,7 +24,7 @@
 
 PRGNAM=intel-media-driver
 SRCNAM=intel-media
-VERSION=${VERSION:-25.4.2}
+VERSION=${VERSION:-25.4.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
