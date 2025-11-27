@@ -35,6 +35,13 @@ for dir in \
   webrtc \
   libfdk-aac \
   pulseaudio \
+  liblc3 \
+  libyuv \
+  libcamera \
+  libldac \
+  libfreeaptx \  
+  libmysofa \
+  pipewire \
   portaudio \
   fluidsynth \
   libmp4v2 \
@@ -52,17 +59,12 @@ for dir in \
   nv-codec-headers \
   libjxl \
   svt-av1 \
-  libmysofa \
   libvpl \
   ffmpeg-nvidia \
   libde265 \
   libdv \
-  liblc3 \
-  libyuv \
-  libcamera \
-  libldac \
-  libfreeaptx \
   pipewire \
+  qjackctl \
   gst-plugins-good \
   ; do
   # Get the package name
