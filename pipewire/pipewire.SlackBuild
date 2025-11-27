@@ -72,10 +72,6 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-#    -Djack=enabled \
-#    -Djack-devel=true \
-#    -Dpipewire-jack=enabled \
-
 mkdir -p build
 cd build
   meson setup \
@@ -89,7 +85,9 @@ cd build
     -Dtests=disabled \
     -Dffmpeg=enabled \
     -Dlogind=enabled \
+    -Djack-devel=true \
     -Dexamples=disabled \
+    -Dpipewire-jack=enabled \
     -Dpw-cat-ffmpeg=enabled \
     -Dinstalled_tests=disabled \
     -Dbluez5-codec-aac=enabled \
@@ -100,6 +98,7 @@ cd build
     -Dlogind-provider=libelogind \
     -Dbluez5-codec-lc3plus=disabled \
     -Dsession-managers=wireplumber \
+    -Dlibjack-path=/usr/lib${LIBDIRSUFFIX}\
     ..
 
   meson configure
