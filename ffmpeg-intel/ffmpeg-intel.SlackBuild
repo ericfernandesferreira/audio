@@ -84,7 +84,6 @@ find -L . \
 # --enable-libopencore_amrnb \
 # --enable-libopencore_amrwb \
 # --enable-libglslang \
-# --enable-libjack \
 
 # --enable-libv4l2 \ removed because conflit with vmware machine
 # --enable-libmfx \ old decoder for intel users
@@ -167,6 +166,7 @@ CXXFLAGS="$SLKCFLAGS -Wno-error=int-conversion -Wno-error=incompatible-pointer-t
   --enable-libdav1d \
   --enable-libmysofa \
   --enable-libsvtav1 \
+  --enable-libjack \
   --arch=$ARCH
 
 make -j17
@@ -184,6 +184,9 @@ cp -a CONTRIBUTING* COPYING* CREDITS Changelog INSTALL* LICENSE* MAINTAINERS \
   README* RELEASE* VERSION $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a doc/*.txt $PKG/usr/doc/$PRGNAM-$VERSION/txt/
 cat $CWD/$PRGNAM-intel.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+# Remove stock Slackware ffmpeg
+removepkg ffmpeg
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
