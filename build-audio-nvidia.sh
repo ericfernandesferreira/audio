@@ -39,7 +39,7 @@ for dir in \
   libyuv \
   libcamera \
   libldac \
-  libfreeaptx \  
+  libfreeaptx \
   libmysofa \
   pipewire \
   portaudio \
