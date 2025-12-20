@@ -56,8 +56,6 @@ for dir in \
   libbs2b \
   libgme \
   libvpl \
-  intel-gmmlib \
-  intel-media-driver \
   intel-onevpl \
   libjxl \
   svt-av1 \
