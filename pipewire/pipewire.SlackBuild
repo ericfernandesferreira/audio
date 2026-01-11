@@ -72,6 +72,8 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+patch -p1 < $CWD/fix-lc3plus.patch
+
 mkdir -p build
 cd build
   meson setup \
@@ -96,7 +98,7 @@ cd build
     -Dbluez5-codec-ldac=enabled \
     -Dbluez5-codec-opus=enabled \
     -Dlogind-provider=libelogind \
-    -Dbluez5-codec-lc3plus=disabled \
+    -Dbluez5-codec-lc3plus=enabled \
     -Dsession-managers=wireplumber \
     -Dlibjack-path=/usr/lib${LIBDIRSUFFIX}\
     ..
@@ -120,9 +122,6 @@ fi
 
 # Increasing RLIMIT_MEMLOCK for JACK clients
 # install -Dm644 $CWD/50-custom.conf $PKG/etc/security/limits.d/50-custom.conf
-
-# Let pipewire control jack audio when necessary
-# install -Dm644 $CWD/pipewire-jack-x86_64.conf -t $PKG/etc/ld.so.conf.d
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a CODE* COPYING INSTALL* LICENSE NEWS README* $PKG/usr/doc/$PRGNAM-$VERSION

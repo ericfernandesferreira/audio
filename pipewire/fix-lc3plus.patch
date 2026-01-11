@@ -1,0 +1,12 @@
+diff -ruN pipewire-1.5.84/spa/plugins/bluez5/a2dp-codec-lc3plus.c pipewire-1.5.84-patched/spa/plugins/bluez5/a2dp-codec-lc3plus.c
+--- pipewire-1.5.84/spa/plugins/bluez5/a2dp-codec-lc3plus.c	2025-11-27 09:50:37.000000000 -0300
++++ pipewire-1.5.84-patched/spa/plugins/bluez5/a2dp-codec-lc3plus.c	2026-01-02 00:22:07.428920983 -0300
+@@ -15,7 +15,7 @@
+ #ifdef HAVE_LC3PLUS_H
+ #include <lc3plus.h>
+ #else
+-#include <lc3.h>
++#include <lc3plus/lc3.h>
+ #endif
+ 
+ #include "rtp.h"
