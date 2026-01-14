@@ -1,0 +1,11 @@
+diff -ruN ffmpeg-7.1.3-original/libavcodec/tableprint_vlc.h ffmpeg-7.1.3-patched/libavcodec/tableprint_vlc.h
+--- ffmpeg-7.1.3-original/libavcodec/tableprint_vlc.h	2025-11-20 22:15:18.000000000 -0300
++++ ffmpeg-7.1.3-patched/libavcodec/tableprint_vlc.h	2026-01-13 22:58:18.192934964 -0300
+@@ -30,6 +30,7 @@
+ #define av_malloc(s) NULL
+ #define av_malloc_array(a, b) NULL
+ #define av_realloc_f(p, o, n) NULL
++#define av_mallocz(s) NULL
+ #define av_free(p) while(0)
+ #define av_freep(p) while(0)
+ #define AVUTIL_INTERNAL_H

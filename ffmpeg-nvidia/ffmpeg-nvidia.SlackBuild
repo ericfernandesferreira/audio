@@ -88,6 +88,8 @@ find -L . \
 # --enable-cuda-nvcc \ 'Only if you are using cuda'
 # --enable-npp \ 'Only if you are using cuda'
 
+patch -p1 < $CWD/fix_713.patch
+
 CFLAGS="$SLKCFLAGS -Wno-error=int-conversion -Wno-error=incompatible-pointer-types" \
 CXXFLAGS="$SLKCFLAGS -Wno-error=int-conversion -Wno-error=incompatible-pointer-types" \
 ./configure \
