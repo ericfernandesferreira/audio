@@ -36,6 +36,7 @@ for dir in \
   libfdk-aac \
   pulseaudio \
   liblc3 \
+  lc3plus \
   libyuv \
   libcamera \
   libldac \
