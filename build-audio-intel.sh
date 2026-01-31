@@ -60,7 +60,6 @@ for dir in \
   intel-onevpl \
   libjxl \
   svt-av1 \
-  nv-codec-headers \
   ffmpeg-intel \
   libde265 \
   libdv \
