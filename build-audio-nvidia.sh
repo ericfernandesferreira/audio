@@ -60,7 +60,6 @@ for dir in \
   nv-codec-headers \
   libjxl \
   svt-av1 \
-  libvpl \
   ffmpeg-nvidia \
   libde265 \
   libdv \
