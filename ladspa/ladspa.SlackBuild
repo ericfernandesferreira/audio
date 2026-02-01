@@ -41,7 +41,9 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://ladspa.org/download/${SRCNAM}_$VERSION.tgz
+wget -c --no-check-certificate 'https://docs.google.com/uc?export=download&id=1HATIQFHReSPXBX0AaPSqnplBljOnHGuL' -O $SRCNAM-$VERSION.tgz
+
+
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -68,7 +70,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf ${SRCNAM}_$VERSION
-tar xvf $CWD/${SRCNAM}_$VERSION.tgz
+tar xvf $CWD/$SRCNAM-$VERSION.tgz
 cd ${SRCNAM}_$VERSION
 chown -R root:root .
 find -L . \
