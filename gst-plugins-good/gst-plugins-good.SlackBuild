@@ -26,7 +26,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Audio Project
 
 PRGNAM=gst-plugins-good
-VERSION=${VERSION:-1.26.10}
+VERSION=${VERSION:-1.28.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -86,9 +86,9 @@ cd build
     -D qt6=enabled \
     -D gtk3=enabled \
     -D doc=disabled \
-    -D glib-checks=disabled \
-    -D glib-asserts=disabled \
-    -D gobject-cast-checks=disabled \
+    -D glib_checks=false \
+    -D glib_assert=false \
+    -D glib_debug=disabled \
     -D package-name="GStreamer Good Plugins (Slackware)" \
     -D package-origin="https://www.slackware.com" \
     ..
@@ -102,8 +102,7 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING ChangeLog MAINTAINERS NEWS README* RELEASE REQUIREMENTS \
-  $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a COPYING ChangeLog MAINTAINERS NEWS README* RELEASE $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
