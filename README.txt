@@ -1,6 +1,6 @@
 Versão Jack2 : 1.9.22
-Versão Pipewire : 1.5.84
-Versão FFMPEG : 7.1.2
+Versão Pipewire : 1.5.85
+Versão FFMPEG : 7.1.3
 NvidiaSDK : 13.0.19
 
 Requerimentos:
@@ -12,13 +12,6 @@ Esse pacote de áudio é "obrigatório" ser instalado antes de ser compilado os 
 O jack audio faz parte do pacote junto ao pipewire, você pode utilizá-lo de duas formas, uma utilizando como era antes que é habilitando o jackd ou jack d-bus como servidor no caso o qjackctl fazendo esse manuseio para você e a outra opção agora disponibilizado pelo pipewire que consiste em utilizar o comando pw-jack antes executar o programa necessário.
 
 Como esse pacote vem com o ffmpeg e isso envolve encoders e decoders então eu resolvi dividir entre gpu's para não existir confusão. Infelizmente não tenho uma placa de vídeo da AMD, então se você possuí uma você terá que editar manualmente.
-
-Pacotes que não são instalados automaticamente:
-- intel-mediasdk (obsoleto)
-- jack2 (jack2 desativado temporariamente)
-- lc3plus (utilizando o lc3)
-- opencl-clhpp (dependência do intel-mediasdk)
-- qjackctl (jack2 desativado temporariamente)
 
 Como instalar:
 - você precisa clonar com o comando : git clone https://github.com/ericfernandesferreira/audio.git
@@ -47,8 +40,8 @@ upgradepkg --install-new /tmp/nomedopacote-compat32.tgz
 ---------------------------------------------------------------
 
 Jack2 Version : 1.9.22
-Pipewire Version : 1.5.84
-FFMPEG Version: 7.1.2
+Pipewire Version : 1.5.85
+FFMPEG Version: 7.1.3
 NvidiaSDK : 13.0.19
 
 Requirements:
