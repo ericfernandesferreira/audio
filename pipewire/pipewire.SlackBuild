@@ -120,6 +120,9 @@ if ! grep -q "^Hidden=true$" /etc/xdg/autostart/pulseaudio.desktop ; then
   echo "Hidden=true" >> /etc/xdg/autostart/pulseaudio.desktop
 fi
 
+# Changing pulse for pipewire in asound.conf
+sed -i 's/pulse/pipewire/g' /etc/asound.conf
+
 # Increasing RLIMIT_MEMLOCK for JACK clients
 # install -Dm644 $CWD/50-custom.conf $PKG/etc/security/limits.d/50-custom.conf
 
