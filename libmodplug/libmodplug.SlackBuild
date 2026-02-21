@@ -37,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://freefr.dl.sourceforge.net/project/modplug-xmms/libmodplug/$VERSION/$PRGNAM-$VERSION.tar.gz
+wget -c --no-check-certificate https://freefr.dl.sourceforge.net/project/modplug-xmms/libmodplug/$VERSION/$PRGNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}

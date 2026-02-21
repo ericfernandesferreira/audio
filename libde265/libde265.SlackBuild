@@ -35,7 +35,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://github.com/strukturag/libde265/releases/download/v$VERSION/$PRGNAM-$VERSION.tar.gz
+wget -c --no-check-certificate https://github.com/strukturag/libde265/releases/download/v$VERSION/$PRGNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}

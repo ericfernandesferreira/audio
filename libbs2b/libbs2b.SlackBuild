@@ -37,7 +37,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://freefr.dl.sourceforge.net/project/bs2b/$PRGNAM/$VERSION/$PRGNAM-$VERSION.tar.bz2
+wget -c --no-check-certificate https://freefr.dl.sourceforge.net/project/bs2b/$PRGNAM/$VERSION/$PRGNAM-$VERSION.tar.bz2
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
