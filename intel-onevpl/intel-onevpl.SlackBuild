@@ -24,7 +24,7 @@
 
 PRGNAM=intel-onevpl
 SRCNAM=vpl-gpu-rt
-VERSION=${VERSION:-25.4.2}
+VERSION=${VERSION:-26.1.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
