@@ -79,7 +79,7 @@ cd build
     --localstatedir=/var \
     --buildtype=release \
     -Dv4l2=enabled \
-    -Dpipelines=all \
+    -Dtracing=disabled \
     -Ddocumentation=disabled \
     ..
 
