@@ -36,7 +36,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://www.etsi.org/deliver/etsi_ts/103600_103699/103634/01.03.01_60/ts_103634v010301p0.zip
+wget -c wget -c --no-check-certificate 'https://docs.google.com/uc?export=download&id=1mPuB9JI90IsNIaNDgkXUnCr0U8yIG0hx' -O ts_103634v010301p0.zip
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
