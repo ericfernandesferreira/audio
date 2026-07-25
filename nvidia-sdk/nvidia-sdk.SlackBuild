@@ -24,7 +24,7 @@
 
 PRGNAM=nvidia-sdk
 SRCNAM=Video_Codec_SDK
-VERSION=${VERSION:-13.0.19}
+VERSION=${VERSION:-13.1.15}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -36,7 +36,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c --no-check-certificate 'https://docs.google.com/uc?export=download&id=17oFpc_NmBmA9F7rwlh_NCQLqYj4DFUPr' -O ${SRCNAM}_$VERSION.zip
+wget -c --no-check-certificate 'https://docs.google.com/uc?export=download&id=11Oertj_b5iUt5l6ZlG82Opa6lZRtoh39' -O ${SRCNAM}_$VERSION.zip
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
