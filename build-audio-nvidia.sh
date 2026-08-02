@@ -63,6 +63,7 @@ for dir in \
   ffmpeg-nvidia \
   libde265 \
   libdv \
+  libheif \
   pipewire \
   qjackctl \
   gst-plugins-good \
